@@ -20,6 +20,12 @@
     "url": "https://github.com/kaddopur/carweb/issues"
   },
   "homepage": "https://github.com/kaddopur/carweb",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "dependencies": {
+    "express": "~4.9.x"
+  },
   "devDependencies": {
     "jest-cli": "^0.2.1"
   }
