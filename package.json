@@ -1,0 +1,26 @@
+{
+  "name": "carweb",
+  "version": "0.1.0",
+  "description": "Cardian website",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kaddopur/carweb.git"
+  },
+  "keywords": [
+    "Cardian",
+    "EDR"
+  ],
+  "author": "Jason C. Huang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kaddopur/carweb/issues"
+  },
+  "homepage": "https://github.com/kaddopur/carweb",
+  "devDependencies": {
+    "jest-cli": "^0.2.1"
+  }
+}
