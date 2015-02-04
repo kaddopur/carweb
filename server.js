@@ -13,6 +13,8 @@ var HtmlComponent = React.createFactory(require('./components/Html'));
 var navigateAction = require('flux-router-component').navigateAction;
 
 var server = express();
+server.set('state namespace', 'App');
+server.use('/public', express.static(__dirname + '/build'));
 server.use(cookieParser());
 server.use(bodyParser.json());
 server.use(csrf({cookie: true}));
@@ -48,7 +50,7 @@ server.use(function (req, res, next) {
                     context: context.getComponentContext()
                 }))
             }));
-            
+
             debug('Sending markup');
             res.write(html);
             res.end();
