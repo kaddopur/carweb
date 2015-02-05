@@ -1,0 +1,8 @@
+h1 {
+    -webkit-user-select: none;
+    cursor: pointer;
+}
+
+body {
+    background-color: #FCFAF2;
+}

@@ -9,6 +9,13 @@ module.exports = function (grunt) {
                 logConcurrentOutput: true
             }
         },
+        copy: {
+            css: {
+                files: [
+                    {expand: true, cwd: 'public/stylesheets/', src: ['**'], dest: 'build/css', filter: 'isFile'}
+                ],
+            },
+        },
         nodemon: {
             dev: {
                 script: './server.js',
@@ -58,8 +65,7 @@ module.exports = function (grunt) {
                 },
                 stats: {
                     colors: true
-                },
-                devtool: 'source-map'
+                }
             }
         }
     });
@@ -71,6 +77,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-webpack');
 
-    grunt.registerTask('default', ['clean', 'concurrent:dev']);
-    grunt.registerTask('production', ['clean', 'webpack:production']);
+    grunt.registerTask('default', ['clean', 'copy:css', 'concurrent:dev']);
+    grunt.registerTask('production', ['clean', 'copy:css', 'webpack:production']);
 };

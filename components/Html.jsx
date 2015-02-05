@@ -8,6 +8,7 @@ var Html = React.createClass({
             <head>
                 <meta charSet="utf-8" />
                 <title>{this.props.title}</title>
+                <link rel="stylesheet" type="text/css" href="public/css/common.css" />
                 <meta name="viewport" content="width=device-width, user-scalable=no" />
             </head>
             <body>
