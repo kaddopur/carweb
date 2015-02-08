@@ -52,9 +52,9 @@ var PageHome = React.createClass({
                     <ReactCSSTransitionGroup transitionName={this.state.transitionName}>
                         {slides[this.state.currentSlide]}
                     </ReactCSSTransitionGroup>
+                    <button onClick={this.nextSlide.bind(null, -1)}>Prev</button>
+                    <button onClick={this.nextSlide.bind(null, 1)}>Next</button>
                 </div>
-                <button onClick={this.nextSlide.bind(null, -1)}>Prev</button>
-                <button onClick={this.nextSlide.bind(null, 1)}>Next</button>
             </div>
         );
     }

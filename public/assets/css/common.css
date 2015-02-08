@@ -33,7 +33,6 @@
 }
 
 .carousel-leave {
-    position: absolute;
     transform: translateX(0);
     transition: transform .4s ease-in-out;
 }
@@ -53,7 +52,6 @@
 }
 
 .carousel-reverse-leave {
-    position: absolute;
     transform: translateX(0);
     transition: transform .4s ease-in-out;
 }
