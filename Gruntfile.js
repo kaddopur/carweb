@@ -10,9 +10,10 @@ module.exports = function (grunt) {
             }
         },
         copy: {
-            css: {
+            assets: {
                 files: [
-                    {expand: true, cwd: 'public/vendor/', src: ['**/*.css'], dest: 'build/css', filter: 'isFile'}
+                    {expand: true, cwd: 'public/vendor/', src: ['**/*.css'], dest: 'build/css', filter: 'isFile'},
+                    {expand: true, cwd: 'public/vendor/', src: ['**/*.js'], dest: 'build/js', filter: 'isFile'}
                 ],
             },
         },
@@ -92,7 +93,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-webpack');
 
     // tasks
-    grunt.registerTask('default', ['clean', 'jshint', 'copy:css','concurrent:dev']);
-    grunt.registerTask('production', ['clean', 'jshint', 'copy:css', 'webpack:production']);
+    grunt.registerTask('default', ['clean', 'jshint', 'copy:assets','concurrent:dev']);
+    grunt.registerTask('production', ['clean', 'jshint', 'copy:assets', 'webpack:production']);
 };
 

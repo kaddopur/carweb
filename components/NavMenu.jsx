@@ -1,6 +1,7 @@
 'use strict';
-var React = require('react');
+var React = require('react/addons');
 var NavLink = require('flux-router-component').NavLink;
+var cx = React.addons.classSet;
 
 var NavMenu = React.createClass({
     getDefaultProps: function () {
@@ -28,8 +29,12 @@ var NavMenu = React.createClass({
             );
         });
 
+        var menuClass = cx({
+            'active': this.props.ui.openNavMenu
+        });
+
         return (
-            <div id="menu">
+            <div id="menu" className={menuClass}>
                 <div className="pure-menu pure-menu-open">
                     <a className="pure-menu-heading" href="#">Cardian</a>
                     <ul>{linkHTML}</ul>

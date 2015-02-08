@@ -1,11 +1,12 @@
 'use strict';
-var React = require('react');
+var React = require('react/addons');
 var NavMenu = require('./NavMenu.jsx');
 var Home = require('./Home.jsx');
 var About = require('./About.jsx');
 var ApplicationStore = require('../stores/ApplicationStore');
 var RouterMixin = require('flux-router-component').RouterMixin;
 var FluxibleMixin = require('fluxible').Mixin;
+var cx = React.addons.classSet;
 
 var Application = React.createClass({
     mixins: [RouterMixin, FluxibleMixin],
@@ -21,11 +22,21 @@ var Application = React.createClass({
             currentPageName: appStore.getCurrentPageName(),
             pageTitle: appStore.getPageTitle(),
             route: appStore.getCurrentRoute(),
-            pages: appStore.getPages()
+            pages: appStore.getPages(),
+            ui: {
+                openNavMenu: false
+            }
         };
     },
     onChange: function () {
         this.setState(this.getState());
+    },
+    handleToggleNavMenu: function () {
+        this.setState({
+            ui: {
+                openNavMenu: !this.state.ui.openNavMenu
+            }
+        });
     },
     render: function () {
         var output = '';
@@ -37,13 +48,23 @@ var Application = React.createClass({
                 output = <About/>;
                 break;
         }
+
+        var menuLinkClass = cx({
+            'menu-link': true,
+            'active': this.state.ui.openNavMenu 
+        });
+
+        var layoutClass = cx({
+            'active': this.state.ui.openNavMenu
+        });
+
         return (
-            <div id="layout">
-                <a href="#menu" id="menuLink" className="menu-link">
+            <div id="layout" className={layoutClass}>
+                <a href="#menu" id="menuLink" className={menuLinkClass} onClick={this.handleToggleNavMenu}>
                     <span></span>
                 </a>
 
-                <NavMenu selected={this.state.currentPageName} links={this.state.pages}/>
+                <NavMenu selected={this.state.currentPageName} links={this.state.pages} ui={this.state.ui}/>
 
                 <div id="main">{output}</div>
             </div>
