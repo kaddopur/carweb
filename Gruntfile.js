@@ -13,7 +13,8 @@ module.exports = function (grunt) {
             assets: {
                 files: [
                     {expand: true, cwd: 'public/vendor/', src: ['**/*.css'], dest: 'build/css', filter: 'isFile'},
-                    {expand: true, cwd: 'public/vendor/', src: ['**/*.js'], dest: 'build/js', filter: 'isFile'}
+                    {expand: true, cwd: 'public/vendor/', src: ['**/*.js'], dest: 'build/js', filter: 'isFile'},
+                    {expand: true, cwd: 'public/assets/css', src: ['**/*.css'], dest: 'build/css', filter: 'isFile'}
                 ],
             },
         },
