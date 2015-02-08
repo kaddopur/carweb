@@ -1,5 +1,7 @@
 'use strict';
 var React = require('react');
+var HeroVideo = require('./HeroVideo');
+var CoverTile = require('./CoverTile');
 
 var PageHome = React.createClass({
     getInitialState: function () {
@@ -7,7 +9,21 @@ var PageHome = React.createClass({
     },
     render: function() {
         return (
-            <p>Welcome to the site!</p>
+            <div className="pure-g">
+                <div className="pure-u-1-2">
+                    <HeroVideo yid="SVgkNW2cENQ"/>
+                </div>
+                <div className="pure-u-1-6">
+                    <CoverTile yid="SVgkNW2cENQ"/>
+                    <CoverTile yid="q6f-LLM1H6U"/>
+                    <CoverTile yid="SVgkNW2cENQ"/>
+                </div>
+                <div className="pure-u-1-6">
+                    <CoverTile yid="SVgkNW2cENQ"/>
+                    <CoverTile yid="q6f-LLM1H6U"/>
+                    <CoverTile yid="SVgkNW2cENQ"/>
+                </div>
+            </div>
         );
     }
 });

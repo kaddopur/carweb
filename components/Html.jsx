@@ -14,6 +14,7 @@ var Html = React.createClass({
                 <meta name="viewport" content="width=device-width, user-scalable=no" />
                 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css" />
                 <link rel="stylesheet" href="/public/css/pure/side-menu.css" />
+                <link rel="stylesheet" href="/public/css/common.css" />
             </head>
             <body>
                 <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>
