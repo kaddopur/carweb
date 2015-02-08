@@ -24,19 +24,20 @@
     "fluxible": "^0.2.0",
     "fluxible-plugin-fetchr": "^0.2.1",
     "fluxible-plugin-routr": "^0.3.0",
-    "node-jsx": "^0.12.0",
-    "react": "^0.12.0",
-    "serialize-javascript": "^1.0.0",
-    "serve-favicon": "^2.1.6",
     "grunt": "~0.4.5",
     "grunt-cli": "~0.1.13",
     "grunt-concurrent": "~1.0.0",
     "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-copy": "^0.7.0",
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-nodemon": "~0.3.0",
     "grunt-webpack": "^1.0.8",
     "json-loader": "~0.5.1",
-    "jsx-loader": "~0.12.0"
+    "jsx-loader": "~0.12.0",
+    "node-jsx": "^0.12.0",
+    "react": "^0.12.0",
+    "serialize-javascript": "^1.0.0",
+    "serve-favicon": "^2.1.6"
   },
   "devDependencies": {
     "bundle-loader": "~0.5.0",
@@ -57,5 +58,9 @@
     "testFileExtensions": [
       "jsx"
     ]
-  }
+  },
+  "precommit": [
+    "lint",
+    "test"
+  ]
 }
