@@ -16,3 +16,28 @@
     border: 1px solid transparent;
     box-sizing: border-box;
 }
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-enter {
+    position: absolute;
+    transform: translateX(100%);
+    transition: transform .4s ease-in-out;
+}
+
+.carousel-enter.carousel-enter-active {
+    transform: translateX(0);
+}
+
+.carousel-leave {
+    position: absolute;
+    transform: translateX(0);
+    transition: transform .4s ease-in-out;
+}
+
+.carousel-leave.carousel-leave-active {
+    transform: translateX(-100%);
+}
