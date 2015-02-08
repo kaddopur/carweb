@@ -7,7 +7,10 @@ var NavMenu = React.createClass({
     getDefaultProps: function () {
         return {
             selected: 'home',
-            links: {}
+            links: {},
+            ui: {
+                openNavMenu: false
+            }
         };
     },
     render: function() {
