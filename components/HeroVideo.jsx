@@ -10,7 +10,6 @@ var HeroVideo = React.createClass({
             </div>
         );
     }
-
 });
 
 module.exports = HeroVideo;
