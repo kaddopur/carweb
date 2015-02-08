@@ -18,15 +18,13 @@ var NavMenu = React.createClass({
         var links = this.props.links;
 
         var linkHTML = Object.keys(links).map(function (name) {
-            var className = '';
             var link = links[name];
-
-            if (selected === name) {
-                className = 'menu-item-divided pure-menu-selected';
-            }
+            var linkClass = cx({
+                'menu-item-divided pure-menu-selected': (selected === name)
+            });
 
             return (
-                <li className={className} key={link.path}>
+                <li className={linkClass} key={link.path}>
                     <NavLink routeName={link.page}>{link.title}</NavLink>
                 </li>
             );
