@@ -1,71 +1,61 @@
 {
-    "author": "Jason C. Huang",
-    "bugs": {
-        "url": "https://github.com/kaddopur/carweb/issues"
-    },
-    "dependencies": {
-        "body-parser": "^1.11.0",
-        "cookie-parser": "^1.3.3",
-        "csurf": "^1.6.6",
-        "debug": "^2.1.1",
-        "express": "~4.9.x",
-        "flux-router-component": "^0.5.7",
-        "fluxible": "^0.2.0",
-        "fluxible-plugin-routr": "^0.3.0",
-        "grunt": "^0.4.5",
-        "grunt-cli": "^0.1.13",
-        "grunt-concurrent": "^1.0.0",
-        "grunt-contrib-clean": "^0.6.0",
-        "grunt-contrib-copy": "^0.7.0",
-        "grunt-nodemon": "^0.3.0",
-        "grunt-webpack": "^1.0.8",
-        "jsx-loader": "^0.12.0",
-        "node-jsx": "^0.12.4",
-        "react": "^0.12.2",
-        "react-tools": "^0.12.2",
-        "serialize-javascript": "^1.0.0",
-        "webpack": "^1.4.12",
-        "webpack-dev-server": "^1.6.5"
-    },
-    "description": "Cardian website",
-    "devDependencies": {
-        "jest-cli": "^0.2.1",
-        "jshint": "^2.6.0",
-        "nodemon": "^1.2.1",
-        "precommit-hook": "^1.0.7"
-    },
-    "engines": {
-        "node": "0.10.x"
-    },
-    "homepage": "https://github.com/kaddopur/carweb",
-    "jest": {
-        "scriptPreprocessor": "<rootDir>/preprocessor.js",
-        "testFileExtensions": [
-            "js",
-            "jsx"
-        ],
-        "unmockedModulePathPatterns": [
-            "<rootDir>/node_modules/react"
-        ]
-    },
-    "keywords": [
-        "Cardian",
-        "Dashcam"
+  "name": "carweb",
+  "version": "0.0.1",
+  "engines": {
+    "node": "0.10.x",
+    "npm": "2.0.x"
+  },
+  "private": true,
+  "scripts": {
+    "dev": "grunt",
+    "lint": "grunt jshint",
+    "postinstall": "grunt production",
+    "start": "node server.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "body-parser": "^1.6.4",
+    "cookie-parser": "^1.3.3",
+    "csurf": "^1.6.3",
+    "debug": "^2.0.0",
+    "express": "^4.3.2",
+    "express-state": "^1.2.0",
+    "flux-router-component": "^0.5.0",
+    "fluxible": "^0.2.0",
+    "fluxible-plugin-fetchr": "^0.2.1",
+    "fluxible-plugin-routr": "^0.3.0",
+    "node-jsx": "^0.12.0",
+    "react": "^0.12.0",
+    "serialize-javascript": "^1.0.0",
+    "serve-favicon": "^2.1.6",
+    "grunt": "~0.4.5",
+    "grunt-cli": "~0.1.13",
+    "grunt-concurrent": "~1.0.0",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-nodemon": "~0.3.0",
+    "grunt-webpack": "^1.0.8",
+    "json-loader": "~0.5.1",
+    "jsx-loader": "~0.12.0"
+  },
+  "devDependencies": {
+    "bundle-loader": "~0.5.0",
+    "jest-cli": "^0.2.2",
+    "jscs": "^1.9.0",
+    "jshint": "^2.5.11",
+    "nodemon": "^1.2.1",
+    "precommit-hook": "^1.0.7",
+    "react-tools": "^0.12.2",
+    "webpack": "^1.4.12",
+    "webpack-dev-server": "^1.6.5"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/preprocessor.js",
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react"
     ],
-    "license": "MIT",
-    "main": "index.js",
-    "name": "carweb",
-    "precommit": [
-        "test"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/kaddopur/carweb.git"
-    },
-    "scripts": {
-        "postinstall": "grunt production",
-        "start": "node server.js",
-        "test": "jest"
-    },
-    "version": "0.1.0"
+    "testFileExtensions": [
+      "jsx"
+    ]
+  }
 }
