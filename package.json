@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "grunt",
     "lint": "grunt jshint",
+    "postinstall": "grunt production",
+    "start": "node server.js",
     "test": "jest"
   },
   "dependencies": {
@@ -22,10 +24,7 @@
     "node-jsx": "^0.12.0",
     "react": "^0.12.0",
     "serialize-javascript": "^1.0.0",
-    "serve-favicon": "^2.1.6"
-  },
-  "devDependencies": {
-    "bundle-loader": "~0.5.0",
+    "serve-favicon": "^2.1.6",
     "grunt": "~0.4.5",
     "grunt-cli": "~0.1.13",
     "grunt-concurrent": "~1.0.0",
@@ -33,10 +32,13 @@
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-nodemon": "~0.3.0",
     "grunt-webpack": "^1.0.8",
+    "json-loader": "~0.5.1",
+    "jsx-loader": "~0.12.0"
+  },
+  "devDependencies": {
+    "bundle-loader": "~0.5.0",
     "jscs": "^1.9.0",
     "jshint": "^2.5.11",
-    "json-loader": "~0.5.1",
-    "jsx-loader": "~0.12.0",
     "nodemon": "^1.2.1",
     "precommit-hook": "^1.0.7",
     "react-tools": "^0.12.2",

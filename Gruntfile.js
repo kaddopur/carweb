@@ -51,6 +51,27 @@ module.exports = function (grunt) {
                 devtool: 'source-map',
                 watch: true,
                 keepalive: true
+            },
+            production: {
+                resolve: {
+                    extensions: ['', '.js', '.jsx']
+                },
+                entry: './client.js',
+                output: {
+                    path: './build/js',
+                    publicPath: '/public/js/',
+                    filename: '[name].js'
+                },
+                module: {
+                    loaders: [
+                        { test: /\.css$/, loader: 'style!css' },
+                        { test: /\.jsx$/, loader: 'jsx-loader' },
+                        { test: /\.json$/, loader: 'json-loader'}
+                    ]
+                },
+                stats: {
+                    colors: true
+                }
             }
         }
     });
@@ -64,5 +85,6 @@ module.exports = function (grunt) {
 
     // tasks
     grunt.registerTask('default', ['clean', 'jshint', 'concurrent:dev']);
+    grunt.registerTask('production', ['clean', 'jshint', 'webpack:production']);
 };
 
