@@ -1,6 +1,6 @@
 'use strict';
 var React = require('react');
-var Nav = require('./Nav.jsx');
+var NavMenu = require('./NavMenu.jsx');
 var Home = require('./Home.jsx');
 var About = require('./About.jsx');
 var ApplicationStore = require('../stores/ApplicationStore');
@@ -38,9 +38,14 @@ var Application = React.createClass({
                 break;
         }
         return (
-            <div>
-                <Nav selected={this.state.currentPageName} links={this.state.pages} />
-                {output}
+            <div id="layout">
+                <a href="#menu" id="menuLink" className="menu-link">
+                    <span></span>
+                </a>
+
+                <NavMenu selected={this.state.currentPageName} links={this.state.pages}/>
+
+                <div id="main">{output}</div>
             </div>
         );
     },

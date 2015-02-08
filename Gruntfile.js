@@ -9,6 +9,13 @@ module.exports = function (grunt) {
                 logConcurrentOutput: true
             }
         },
+        copy: {
+            css: {
+                files: [
+                    {expand: true, cwd: 'public/vendor/', src: ['**/*.css'], dest: 'build/css', filter: 'isFile'}
+                ],
+            },
+        },
         jshint: {
             all: [
                 '*.js',
@@ -78,13 +85,14 @@ module.exports = function (grunt) {
 
     // libs
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-webpack');
 
     // tasks
-    grunt.registerTask('default', ['clean', 'jshint', 'concurrent:dev']);
-    grunt.registerTask('production', ['clean', 'jshint', 'webpack:production']);
+    grunt.registerTask('default', ['clean', 'jshint', 'copy:css','concurrent:dev']);
+    grunt.registerTask('production', ['clean', 'jshint', 'copy:css', 'webpack:production']);
 };
 

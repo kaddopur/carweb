@@ -2,7 +2,7 @@
 var React = require('react');
 var NavLink = require('flux-router-component').NavLink;
 
-var Nav = React.createClass({
+var NavMenu = React.createClass({
     getDefaultProps: function () {
         return {
             selected: 'home',
@@ -18,7 +18,7 @@ var Nav = React.createClass({
             var link = links[name];
 
             if (selected === name) {
-                className = 'pure-menu-selected';
+                className = 'menu-item-divided pure-menu-selected';
             }
 
             return (
@@ -29,11 +29,14 @@ var Nav = React.createClass({
         });
 
         return (
-            <ul className="pure-menu pure-menu-open pure-menu-horizontal">
-                {linkHTML}
-            </ul>
+            <div id="menu">
+                <div className="pure-menu pure-menu-open">
+                    <a className="pure-menu-heading" href="#">Cardian</a>
+                    <ul>{linkHTML}</ul>
+                </div>
+            </div>
         );
     }
 });
 
-module.exports = Nav;
+module.exports = NavMenu;
