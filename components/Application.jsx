@@ -1,7 +1,7 @@
 'use strict';
 var React = require('react/addons');
 var NavMenu = require('./NavMenu.jsx');
-var Home = require('./Home.jsx');
+var PageHome = require('./PageHome.jsx');
 var About = require('./About.jsx');
 var ApplicationStore = require('../stores/ApplicationStore');
 var RouterMixin = require('flux-router-component').RouterMixin;
@@ -42,7 +42,7 @@ var Application = React.createClass({
         var output = '';
         switch (this.state.currentPageName) {
             case 'home':
-                output = <Home/>;
+                output = <PageHome/>;
                 break;
             case 'about':
                 output = <About/>;

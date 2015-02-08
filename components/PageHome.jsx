@@ -1,7 +1,7 @@
 'use strict';
 var React = require('react');
 
-var Home = React.createClass({
+var PageHome = React.createClass({
     getInitialState: function () {
         return {};
     },
@@ -12,4 +12,4 @@ var Home = React.createClass({
     }
 });
 
-module.exports = Home;
+module.exports = PageHome;
