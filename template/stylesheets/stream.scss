@@ -1,6 +1,16 @@
 @import 'variable';
 @import 'navMenu';
 
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
 body {
     font-size: 16px;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -10,6 +20,92 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 0;
     width: calc(100% - #{$NAV_MENU_WIDTH});
+    background-color: $COLOR_BG_2;
+    padding-left: 1em;
+    box-sizing: border-box;
+}
+
+.HeroStream {
+    @extend .cf;
+    margin-bottom: 3em;
+}
+
+.StreamTitle {
+    color: $COLOR_LINK_ACTIVE;
+    font-weight: 100;
+    letter-spacing: 2px;
+    font-size: 1.125em;
+    line-height: 1em;
+    margin: 0.5em 0;
+}
+
+.HeroVideo {
+    float: left;
+    margin-right: 2px;
+}
+
+.HeroSlide {
+    @extend .cf;
+    float: left;
+    width: 380px;
+}
+
+.CoverTile {
+    width: 184px;
+    float: left;
+    margin: 0 2px 2px 0;
+    position: relative;
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+.WatchingLabel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0.6em;
+    letter-spacing: 0.7px;
+    background-color: #f80e5d;
+    color: white;
+    padding: 3px 6px;
+    text-transform: uppercase;
+}
+
+.DurationLabel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.6em;
+    letter-spacing: 0.7px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 3px 6px;
+    text-transform: uppercase;
+}
+
+.CoverOverlay {
+    padding-top: 20px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 75%,rgba(0,0,0,0.8) 100%);
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    span {
+        padding: 0 0 2px 6px;
+        font-size: 0.625em;
+        color: #ccc;
+    }
+    p {
+        padding: 2px 6px 4px;
+        color: white;
+        font-size: 0.78125em;
+        margin: 0;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-shadow: black 0px 1px 0px;
+        overflow: hidden;
+    }
 }
