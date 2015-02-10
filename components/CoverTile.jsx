@@ -1,3 +1,5 @@
+'use strict';
+
 var React = require('react');
 
 var CoverTile = React.createClass({
@@ -9,4 +11,4 @@ var CoverTile = React.createClass({
     }
 });
 
-module.exports = CoverTile
+module.exports = CoverTile;
