@@ -1,0 +1,12 @@
+.Stream {
+    @extend .cf;
+    margin-bottom: 3em;
+    min-width: 5 * ($COVER_WIDTH + $GUTTER);
+    overflow: hidden;
+    position: relative;
+}
+
+.Slide {
+    @extend .cf;
+    width: 20 * ($COVER_WIDTH + $GUTTER);
+}

@@ -1,0 +1,29 @@
+@import 'plugins/normalize.css';
+
+@import 'globals/variable';
+@import 'globals/mixin';
+
+@import 'components/logo';
+@import 'components/nav_menu';
+@import 'components/cover_tile';
+@import 'components/hero_stream';
+@import 'components/stream';
+@import 'components/nav_button';
+
+body {
+    font-size: 16px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.PageStream {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(100% - #{$NAV_MENU_WIDTH});
+    min-height: 100vh;
+    background-color: $COLOR_BG_2;
+    padding-left: 1em;
+    padding-right: 1em;
+    box-sizing: border-box;
+    padding-bottom: 3em;
+}

@@ -1,0 +1,36 @@
+.NavButton {
+    position: absolute;
+    height: $NAV_BUTTON_WIDTH;
+    width: $NAV_BUTTON_WIDTH;
+    bottom: 0.55 * $COVER_HEIGHT;
+    margin-bottom: -0.5 * $NAV_BUTTON_WIDTH;
+    background-color: rgba(17, 17, 17, 0.5);
+    border: none;
+    color: white;
+    transition: background 0.25s ease-in-out;
+    font-size: 3em;
+    font-weight: 100;
+    line-height: 0.7em;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+    box-sizing: border-box;
+
+    &:hover {
+        background-color: rgba(17, 17, 17, 0.9);
+    }
+
+    &.Left {
+        left: 0;
+        &:after {
+            content: '‹';
+        }
+    }
+
+    &.Right {
+        right: 0;
+        &:after {
+            content: '›';
+        }
+    }
+}
