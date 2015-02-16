@@ -1,59 +1,53 @@
+@charset "UTF-8";
 .NavMenu {
   background-color: #17151d;
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
-  width: 170px;
-}
-.NavMenu ul {
-  padding: 0;
-  margin: 0;
-}
-.NavMenu li {
-  border-left: 3px solid transparent;
-}
-.NavMenu li.active {
-  border-left-color: #5f3ffb;
-}
-.NavMenu li.active a {
-  color: white;
-}
-.NavMenu li:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-.NavMenu li:hover a {
-  color: white;
-}
-.NavMenu a {
-  display: block;
-  color: #ddd;
-  font-weight: 100;
-  padding: 0 1em;
-  text-decoration: none;
-  line-height: 2em;
-  font-size: 0.9em;
-  letter-spacing: 1.5px;
-}
+  width: 170px; }
+  .NavMenu ul {
+    padding: 0;
+    margin: 0; }
+  .NavMenu li {
+    border-left: 3px solid transparent; }
+    .NavMenu li.active {
+      border-left-color: #5f3ffb; }
+      .NavMenu li.active a {
+        color: white; }
+    .NavMenu li:hover {
+      background-color: rgba(255, 255, 255, 0.1); }
+      .NavMenu li:hover a {
+        color: white; }
+  .NavMenu a {
+    display: block;
+    color: #ddd;
+    font-weight: 100;
+    padding: 0 1em;
+    text-decoration: none;
+    line-height: 2em;
+    font-size: 0.9em;
+    letter-spacing: 1.5px;
+    -webkit-user-select: none;
+    user-select: none; }
 
-.cf:before, .HeroStream:before, .HeroSlide:before,
+.cf:before, .HeroStream:before, .HeroSlide:before, .Stream:before, .Slide:before,
 .cf:after,
 .HeroStream:after,
-.HeroSlide:after {
+.HeroSlide:after,
+.Stream:after,
+.Slide:after {
   content: " ";
   /* 1 */
   display: table;
-  /* 2 */
-}
+  /* 2 */ }
 
-.cf:after, .HeroStream:after, .HeroSlide:after {
-  clear: both;
-}
+.cf:after, .HeroStream:after, .HeroSlide:after, .Stream:after, .Slide:after {
+  clear: both; }
 
 body {
   font-size: 16px;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 .PageStream {
   position: absolute;
@@ -63,11 +57,10 @@ body {
   background-color: #1d1d24;
   padding-left: 1em;
   box-sizing: border-box;
-}
+  padding-bottom: 6em; }
 
 .HeroStream {
-  margin-bottom: 3em;
-}
+  margin-bottom: 3em; }
 
 .StreamTitle {
   color: white;
@@ -75,30 +68,25 @@ body {
   letter-spacing: 2px;
   font-size: 1.125em;
   line-height: 1em;
-  margin: 0.5em 0;
-}
+  margin: 0.5em 0; }
 
 .HeroVideo {
   float: left;
-  margin-right: 2px;
-}
+  margin-right: 2px; }
 
 .HeroSlide {
   float: left;
-  width: 380px;
-}
+  width: 380px; }
 
 .CoverTile {
   width: 184px;
   float: left;
   margin: 0 2px 2px 0;
-  position: relative;
-}
-.CoverTile img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
+  position: relative; }
+  .CoverTile img {
+    max-width: 100%;
+    height: auto;
+    display: block; }
 
 .WatchingLabel {
   position: absolute;
@@ -109,8 +97,7 @@ body {
   background-color: #f80e5d;
   color: white;
   padding: 3px 6px;
-  text-transform: uppercase;
-}
+  text-transform: uppercase; }
 
 .DurationLabel {
   position: absolute;
@@ -121,30 +108,64 @@ body {
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   padding: 3px 6px;
-  text-transform: uppercase;
-}
+  text-transform: uppercase; }
 
 .CoverOverlay {
   padding-top: 20px;
   background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 75%, rgba(0, 0, 0, 0.8) 100%);
   position: absolute;
   width: 100%;
-  bottom: 0;
-}
-.CoverOverlay span {
-  padding: 0 0 2px 6px;
-  font-size: 0.625em;
-  color: #ccc;
-}
-.CoverOverlay p {
-  padding: 2px 6px 4px;
-  color: white;
-  font-size: 0.78125em;
-  margin: 0;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  text-shadow: black 0px 1px 0px;
+  bottom: 0; }
+  .CoverOverlay span {
+    padding: 0 0 2px 6px;
+    font-size: 0.625em;
+    color: #ccc; }
+  .CoverOverlay p {
+    padding: 2px 6px 4px;
+    color: white;
+    font-size: 0.78125em;
+    margin: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-shadow: black 0px 1px 0px;
+    overflow: hidden; }
+
+.Stream {
+  margin-bottom: 3em;
+  width: 1162.5px;
   overflow: hidden;
-}
+  position: relative; }
+
+.Slide {
+  width: 1302px; }
+
+.NavButton {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  bottom: 51.75px;
+  margin-bottom: -20px;
+  background-color: rgba(17, 17, 17, 0.5);
+  border: none;
+  color: white;
+  transition: background 0.25s ease-in-out;
+  font-size: 3em;
+  font-weight: 100;
+  line-height: 0.7em;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-select: none; }
+  .NavButton:hover {
+    background-color: rgba(17, 17, 17, 0.9); }
+  .NavButton:active {
+    width: 41px; }
+  .NavButton.Left {
+    left: 0; }
+    .NavButton.Left:after {
+      content: '‹'; }
+  .NavButton.Right {
+    right: 0; }
+    .NavButton.Right:after {
+      content: '›'; }
 
 /*# sourceMappingURL=stream.css.map */

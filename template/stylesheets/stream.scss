@@ -24,6 +24,7 @@ body {
     background-color: $COLOR_BG_2;
     padding-left: 1em;
     box-sizing: border-box;
+    padding-bottom: 6em;
 }
 
 .HeroStream {
@@ -52,7 +53,7 @@ body {
 }
 
 .CoverTile {
-    width: 184px;
+    width: $COVER_WIDTH;
     float: left;
     margin: 0 2px 2px 0;
     position: relative;
@@ -109,3 +110,58 @@ body {
         overflow: hidden;
     }
 }
+
+.Stream {
+    @extend .cf;
+    margin-bottom: 3em;
+    width: 6.25 * ($COVER_WIDTH + 2px);
+    overflow: hidden;
+    position: relative;
+}
+
+.Slide {
+    @extend .cf;
+    width: 7 * ($COVER_WIDTH + 2px);
+}
+
+.NavButton {
+    position: absolute;
+    height: $NAV_BUTTON_WIDTH;
+    width: $NAV_BUTTON_WIDTH;
+    bottom: 0.5 * $COVER_HEIGHT;
+    margin-bottom: -0.5 * $NAV_BUTTON_WIDTH;
+    background-color: rgba(17, 17, 17, 0.5);
+    border: none;
+    color: white;
+    transition: background 0.25s ease-in-out;
+    font-size: 3em;
+    font-weight: 100;
+    line-height: 0.7em;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+    &:hover {
+        background-color: rgba(17, 17, 17, 0.9);
+    }
+    &:active {
+        width: $NAV_BUTTON_WIDTH + 1px;
+    }
+
+    &.Left {
+        left: 0;
+        &:after {
+            content: '‹';
+        }
+    }
+
+    &.Right {
+        right: 0;
+        &:after {
+            content: '›';
+        }
+    }
+}
+
+
+
+

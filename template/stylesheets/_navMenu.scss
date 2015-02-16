@@ -33,5 +33,7 @@
         line-height: 2em;
         font-size: 0.9em;
         letter-spacing: 1.5px;
+        -webkit-user-select: none;
+        user-select: none;
     }
 }
