@@ -105,14 +105,14 @@
 .Stream {
     @extend .cf;
     margin-bottom: 3em;
-    width: 6.25 * ($COVER_WIDTH + 2px);
+    min-width: 5 * ($COVER_WIDTH + $GUTTER);
     overflow: hidden;
     position: relative;
 }
 
 .Slide {
     @extend .cf;
-    width: 7 * ($COVER_WIDTH + $GUTTER);
+    width: 20 * ($COVER_WIDTH + $GUTTER);
 }
 
 .NavButton {
@@ -132,7 +132,7 @@
     cursor: pointer;
     -webkit-user-select: none;
     box-sizing: border-box;
-    
+
     &:hover {
         background-color: rgba(17, 17, 17, 0.9);
     }

@@ -132,12 +132,12 @@
 
 .Stream {
   margin-bottom: 3em;
-  width: 1162.5px;
+  min-width: 930px;
   overflow: hidden;
   position: relative; }
 
 .Slide {
-  width: 1302px; }
+  width: 3720px; }
 
 .NavButton {
   position: absolute;
@@ -176,8 +176,10 @@ body {
   top: 0;
   right: 0;
   width: calc(100% - 170px);
+  min-height: 100vh;
   background-color: #1d1d24;
   padding-left: 1em;
+  padding-right: 1em;
   box-sizing: border-box;
   padding-bottom: 3em; }
 

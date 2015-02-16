@@ -14,8 +14,10 @@ body {
     top: 0;
     right: 0;
     width: calc(100% - #{$NAV_MENU_WIDTH});
+    min-height: 100vh;
     background-color: $COLOR_BG_2;
     padding-left: 1em;
+    padding-right: 1em;
     box-sizing: border-box;
     padding-bottom: 3em;
 }
