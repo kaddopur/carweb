@@ -1,8 +1,13 @@
-@import 'variable';
-@import 'mixin';
+@import 'plugins/normalize.css';
+
+@import 'globals/variable';
+@import 'globals/mixin';
 
 @import 'components/nav_menu';
-@import 'stream';
+@import 'components/cover_tile';
+@import 'components/hero_stream';
+@import 'components/stream';
+@import 'components/nav_button';
 
 body {
     font-size: 16px;

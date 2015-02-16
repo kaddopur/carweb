@@ -1,0 +1,44 @@
+.HeroStream {
+    @extend .cf;
+    margin-bottom: 3em;
+    position: relative;
+    width: 562px + 2 * ($COVER_WIDTH + $GUTTER);
+}
+
+.StreamTitle {
+    color: $COLOR_LINK_ACTIVE;
+    font-weight: 100;
+    letter-spacing: 2px;
+    font-size: 1.125em;
+    line-height: 1em;
+    margin: 0.5em 0;
+}
+
+.HeroVideo {
+    float: left;
+    margin-right: 2px;
+}
+
+.HeroSlide {
+    @extend .cf;
+    float: left;
+    width: 2 * ($COVER_WIDTH + $GUTTER);
+}
+
+.HeroNavButtonContainer {
+    position: absolute;
+    bottom:  2px - $NAV_BUTTON_WIDTH;
+    right: $GUTTER;
+    width: 2 * $NAV_BUTTON_WIDTH + $GUTTER;
+    span {
+        background-color: rgba(80, 80, 80, 0.5);
+        bottom: 0;
+        margin-bottom: 0;
+        &:hover {
+            background-color: rgba(80, 80, 80, 0.9);
+        }
+        &:active {
+            background-color: rgba(80, 80, 80, 0.8);
+        }
+    }
+}
