@@ -1,35 +1,8 @@
-@import 'variable';
-@import 'navMenu';
-
-.cf:before,
-.cf:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-}
-
-.cf:after {
-    clear: both;
-}
-
-body {
-    font-size: 16px;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-.PageStream {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: calc(100% - #{$NAV_MENU_WIDTH});
-    background-color: $COLOR_BG_2;
-    padding-left: 1em;
-    box-sizing: border-box;
-    padding-bottom: 6em;
-}
-
 .HeroStream {
     @extend .cf;
     margin-bottom: 3em;
+    position: relative;
+    width: 562px + 2 * ($COVER_WIDTH + $GUTTER);
 }
 
 .StreamTitle {
@@ -49,7 +22,7 @@ body {
 .HeroSlide {
     @extend .cf;
     float: left;
-    width: 380px;
+    width: 2 * ($COVER_WIDTH + $GUTTER);
 }
 
 .CoverTile {
@@ -111,6 +84,24 @@ body {
     }
 }
 
+.HeroNavButtonContainer {
+    position: absolute;
+    bottom:  2px - $NAV_BUTTON_WIDTH;
+    right: $GUTTER;
+    width: 2 * $NAV_BUTTON_WIDTH + $GUTTER;
+    span {
+        background-color: rgba(80, 80, 80, 0.5);
+        bottom: 0;
+        margin-bottom: 0;
+        &:hover {
+            background-color: rgba(80, 80, 80, 0.9);
+        }
+        &:active {
+            background-color: rgba(80, 80, 80, 0.8);
+        }
+    }
+}
+
 .Stream {
     @extend .cf;
     margin-bottom: 3em;
@@ -121,14 +112,14 @@ body {
 
 .Slide {
     @extend .cf;
-    width: 7 * ($COVER_WIDTH + 2px);
+    width: 7 * ($COVER_WIDTH + $GUTTER);
 }
 
 .NavButton {
     position: absolute;
     height: $NAV_BUTTON_WIDTH;
     width: $NAV_BUTTON_WIDTH;
-    bottom: 0.5 * $COVER_HEIGHT;
+    bottom: 0.55 * $COVER_HEIGHT;
     margin-bottom: -0.5 * $NAV_BUTTON_WIDTH;
     background-color: rgba(17, 17, 17, 0.5);
     border: none;
@@ -140,11 +131,10 @@ body {
     text-align: center;
     cursor: pointer;
     -webkit-user-select: none;
+    box-sizing: border-box;
+    
     &:hover {
         background-color: rgba(17, 17, 17, 0.9);
-    }
-    &:active {
-        width: $NAV_BUTTON_WIDTH + 1px;
     }
 
     &.Left {
@@ -161,7 +151,3 @@ body {
         }
     }
 }
-
-
-
-
