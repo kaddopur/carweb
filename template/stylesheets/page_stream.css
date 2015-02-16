@@ -12,27 +12,27 @@
 .cf:after, .HeroStream:after, .HeroSlide:after, .Stream:after, .Slide:after {
   clear: both; }
 
-.nav-menu {
+.NavMenu {
   background-color: #17151d;
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   width: 170px; }
-  .nav-menu ul {
+  .NavMenu ul {
     padding: 0;
     margin: 0; }
-  .nav-menu li {
+  .NavMenu li {
     border-left: 3px solid transparent; }
-    .nav-menu li.active {
+    .NavMenu li.active {
       border-left-color: #5f3ffb; }
-      .nav-menu li.active a {
+      .NavMenu li.active a {
         color: white; }
-    .nav-menu li:hover {
+    .NavMenu li:hover {
       background-color: rgba(255, 255, 255, 0.1); }
-      .nav-menu li:hover a {
+      .NavMenu li:hover a {
         color: white; }
-  .nav-menu a {
+  .NavMenu a {
     display: block;
     color: #ddd;
     font-weight: 100;
