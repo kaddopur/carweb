@@ -12,6 +12,13 @@
 .cf:after, .HeroStream:after, .HeroSlide:after, .Stream:after, .Slide:after {
   clear: both; }
 
+.Logo {
+  background: url("../cardian_logo.png") no-repeat -7px -4px;
+  background-size: 156px 77px;
+  width: 146px;
+  height: 68px;
+  margin: 12px; }
+
 .NavMenu {
   background-color: #17151d;
   position: fixed;
