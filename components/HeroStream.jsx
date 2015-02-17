@@ -2,7 +2,7 @@
 
 var React = require('react');
 var HeroVideo = require('./HeroVideo');
-var CoverTile = require('./CoverTile');
+var HeroSlide = require('./HeroSlide');
 
 var HeroStream = React.createClass({
     getDefaultProps: function() {
@@ -61,14 +61,7 @@ var HeroStream = React.createClass({
     render: function() {
         var heroSlides = this.props.slides.map(function renderHeroSlide(slide, index) {
             return (
-                <div className="HeroSlide" key={index}>
-                    <CoverTile {...slide[0]}/>
-                    <CoverTile {...slide[1]}/>
-                    <CoverTile {...slide[2]}/>
-                    <CoverTile {...slide[3]}/>
-                    <CoverTile {...slide[4]}/>
-                    <CoverTile {...slide[5]}/>
-                </div>
+                <HeroSlide videos={slide} key={index}/>
             );
         });
         return (
