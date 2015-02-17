@@ -40,11 +40,6 @@
     position: absolute;
     width: 100%;
     bottom: 0;
-    span {
-        padding: 0 0 2px 6px;
-        font-size: 0.625em;
-        color: #ccc;
-    }
     p {
         padding: 2px 6px 4px;
         color: white;
@@ -55,4 +50,10 @@
         text-shadow: black 0px 1px 0px;
         overflow: hidden;
     }
+}
+
+.CoverViews {
+    padding: 0 0 2px 6px;
+    font-size: 0.625em;
+    color: #ccc;
 }
