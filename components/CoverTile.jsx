@@ -3,6 +3,9 @@
 var React = require('react');
 
 var CoverTile = React.createClass({
+    propTypes: {
+        coverSrc: React.PropTypes.string.isRequired
+    },
     getDefaultProps: function() {
         return {
             isActive: false,
@@ -10,7 +13,7 @@ var CoverTile = React.createClass({
             durationLabel: '1:19',
             views: 1300,
             caption: 'Thoughts You Have While Thoughts You Have While',
-            coverSrc: 'http://placehold.it/320x180',
+            coverSrc: 'http://placehold.it/320x180'
         };
     },
     render: function() {
