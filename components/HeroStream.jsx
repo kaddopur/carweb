@@ -53,7 +53,6 @@ var HeroStream = React.createClass({
                     {
                         youtubeId: '4JipHEz53sU'
                     }
-
                 ],
                 [
                     {
@@ -74,10 +73,10 @@ var HeroStream = React.createClass({
                     {
                         youtubeId: 'dFf4AgBNR1E'
                     }
-
                 ]
             ],
-            initSlideIndex: 0
+            initSlideIndex: 0,
+            gapBetweenClick: 200
         };
     },
     getInitialState: function() {
@@ -86,8 +85,17 @@ var HeroStream = React.createClass({
             slideAnimation: 'hero-slide-left'
         };
     },
+    componentDidMount: function() {
+        this.slideTimestamp = new Date();
+    },
     handleIndexChange: function(step) {
+        var currentTimestamp = new Date();
         var slideLength = this.props.slides.length;
+
+        if (currentTimestamp - this.slideTimestamp < this.props.gapBetweenClick) {
+            return;
+        }
+        this.slideTimestamp = currentTimestamp;
 
         this.setState({
             slideIndex: (this.state.slideIndex + slideLength + step) % slideLength,
