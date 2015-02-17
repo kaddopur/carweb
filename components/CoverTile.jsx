@@ -4,7 +4,7 @@ var React = require('react');
 
 var CoverTile = React.createClass({
     propTypes: {
-        coverSrc: React.PropTypes.string.isRequired
+        youtubeId: React.PropTypes.string.isRequired
     },
     getDefaultProps: function() {
         return {
@@ -13,10 +13,11 @@ var CoverTile = React.createClass({
             durationLabel: '1:19',
             views: 1300,
             caption: 'Thoughts You Have While Thoughts You Have While',
-            coverSrc: 'http://placehold.it/320x180'
+            youtubeId: '5XYxuVYmR6A'
         };
     },
     render: function() {
+        var coverSrc = 'https://i.ytimg.com/vi/' + this.props.youtubeId + '/mqdefault.jpg';
         return (
             <a href="#">
                 <div className="CoverTile active">
@@ -26,7 +27,7 @@ var CoverTile = React.createClass({
                         <span className="CoverViews">{this.props.views} views</span>
                         <p>{this.props.caption}</p>
                     </div>
-                    <img src={this.props.coverSrc}/>
+                    <img src={coverSrc}/>
                 </div>
             </a>
         );
