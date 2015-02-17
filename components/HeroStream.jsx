@@ -4,93 +4,53 @@ var React = require('react/addons');
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 var HeroVideo = require('./HeroVideo');
 var HeroSlide = require('./HeroSlide');
+var _ = require('lodash');
 
 var HeroStream = React.createClass({
+    propTypes: {
+        name: React.PropTypes.string.isRequired,
+        heroYoutubeId: React.PropTypes.string.isRequired
+    },
     getDefaultProps: function() {
         return {
-            name: 'Now Watching',
-            heroVideo: {
-                youtubeId: '5XYxuVYmR6A'
-            },
-            slides: [
-                [
-                    {
-                        youtubeId: '5XYxuVYmR6A',
-                        isActive: true
-                    },
-                    {
-                        youtubeId: '5XYxuVYmR6A'
-                    },
-                    {
-                        youtubeId: '5XYxuVYmR6A'
-                    },
-                    {
-                        youtubeId: '5XYxuVYmR6A'
-                    },
-                    {
-                        youtubeId: '5XYxuVYmR6A'
-                    },
-                    {
-                        youtubeId: '5XYxuVYmR6A'
-                    }
-                ],
-                [
-                    {
-                        youtubeId: '4JipHEz53sU'
-                    },
-                    {
-                        youtubeId: '4JipHEz53sU'
-                    },
-                    {
-                        youtubeId: '4JipHEz53sU'
-                    },
-                    {
-                        youtubeId: '4JipHEz53sU'
-                    },
-                    {
-                        youtubeId: '4JipHEz53sU'
-                    },
-                    {
-                        youtubeId: '4JipHEz53sU'
-                    }
-                ],
-                [
-                    {
-                        youtubeId: 'dFf4AgBNR1E'
-                    },
-                    {
-                        youtubeId: 'dFf4AgBNR1E'
-                    },
-                    {
-                        youtubeId: 'dFf4AgBNR1E'
-                    },
-                    {
-                        youtubeId: 'dFf4AgBNR1E'
-                    },
-                    {
-                        youtubeId: 'dFf4AgBNR1E'
-                    },
-                    {
-                        youtubeId: 'dFf4AgBNR1E'
-                    }
-                ]
-            ],
             initSlideIndex: 0,
-            gapBetweenClick: 200
+            gapBetweenClick: 200,
+            videoPerPage: 6
         };
     },
     getInitialState: function() {
         return {
             slideIndex: this.props.initSlideIndex,
-            slideAnimation: 'hero-slide-left'
+            slideAnimation: 'hero-slide-left',
+            slides: []
         };
+    },
+    componentWillMount: function() {
+        var heroVideo;
+        var slides;
+        var slideIndex;
+
+        this.props.videos.map(function setActiveVideo(video, index) {
+            if (video.youtubeId === this.props.heroYoutubeId) {
+                video.isActive = true;
+                heroVideo = video;
+                slideIndex = Math.floor(index / this.props.videoPerPage);
+            }
+        }, this);
+        slides = _.chunk(this.props.videos, this.props.videoPerPage);
+
+        this.setState({
+            slides: slides,
+            heroVideo: heroVideo,
+            slideIndex: slideIndex
+        });
     },
     componentDidMount: function() {
         this.slideTimestamp = new Date();
     },
     handleIndexChange: function(step) {
         var currentTimestamp = new Date();
-        var slideLength = this.props.slides.length;
+        var slideLength = this.state.slides.length;
 
         if (currentTimestamp - this.slideTimestamp < this.props.gapBetweenClick) {
             return;
@@ -112,7 +72,7 @@ var HeroStream = React.createClass({
             );
         }
 
-        if (this.state.slideIndex !== this.props.slides.length - 1) {
+        if (this.state.slideIndex !== this.state.slides.length - 1) {
             rightButton = (
                 <span className="NavButton Right" onClick={this.handleIndexChange.bind(this, 1)}></span>
             );
@@ -120,13 +80,13 @@ var HeroStream = React.createClass({
         return (
             <div className="HeroStream">
                 <h2 className="StreamTitle">{this.props.name}</h2>
-                <HeroVideo {...this.props.heroVideo}/>
+                <HeroVideo {...this.state.heroVideo}/>
                 <div className="HeroSlideViewport">
                     <ReactCSSTransitionGroup transitionName={this.state.slideAnimation}>
-                        <HeroSlide videos={this.props.slides[this.state.slideIndex]} key={this.state.slideIndex}/>
+                        <HeroSlide videos={this.state.slides[this.state.slideIndex]} key={this.state.slideIndex}/>
                     </ReactCSSTransitionGroup>
                 </div>
-                <div className="HeroNavButtonContainer">{leftButton}{rightButton}</div>
+                {this.state.slides.length === 0 ? null : <div className="HeroNavButtonContainer">{leftButton}{rightButton}</div>}
             </div>
         );
     }
