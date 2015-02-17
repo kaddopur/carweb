@@ -1,0 +1,43 @@
+.hero-slide-left-enter {
+    position: absolute;
+    top: 0;
+    left: 372px;
+    transition: left 0.25s ease-in-out;
+}
+
+.hero-slide-left-enter-active {
+    left: 0;
+}
+
+.hero-slide-left-leave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: left 0.25s ease-in-out;
+}
+
+.hero-slide-left-leave-active {
+    left: -372px;
+}
+
+.hero-slide-right-enter {
+    position: absolute;
+    top: 0;
+    right: 372px;
+    transition: right 0.25s ease-in-out;
+}
+
+.hero-slide-right-enter-active {
+    right: 0;
+}
+
+.hero-slide-right-leave {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: right 0.25s ease-in-out;
+}
+
+.hero-slide-right-leave-active {
+    right: -372px;
+}

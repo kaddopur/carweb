@@ -82,14 +82,16 @@ var HeroStream = React.createClass({
     },
     getInitialState: function() {
         return {
-            slideIndex: this.props.initSlideIndex
+            slideIndex: this.props.initSlideIndex,
+            slideAnimation: 'hero-slide-left'
         };
     },
     handleIndexChange: function(step) {
         var slideLength = this.props.slides.length;
 
         this.setState({
-            slideIndex: (this.state.slideIndex + slideLength + step) % slideLength
+            slideIndex: (this.state.slideIndex + slideLength + step) % slideLength,
+            slideAnimation: (step > 0 ? 'hero-slide-left' : 'hero-slide-right')
         });
     },
     render: function() {
@@ -111,9 +113,11 @@ var HeroStream = React.createClass({
             <div className="HeroStream">
                 <h2 className="StreamTitle">{this.props.name}</h2>
                 <HeroVideo {...this.props.heroVideo}/>
-                <ReactCSSTransitionGroup transitionName="example">
-                    <HeroSlide videos={this.props.slides[this.state.slideIndex]}/>
-                </ReactCSSTransitionGroup>
+                <div className="HeroSlideViewport">
+                    <ReactCSSTransitionGroup transitionName={this.state.slideAnimation}>
+                        <HeroSlide videos={this.props.slides[this.state.slideIndex]} key={this.state.slideIndex}/>
+                    </ReactCSSTransitionGroup>
+                </div>
                 <div className="HeroNavButtonContainer">{leftButton}{rightButton}</div>
             </div>
         );
