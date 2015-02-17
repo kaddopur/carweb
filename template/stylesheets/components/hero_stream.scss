@@ -17,6 +17,8 @@
 .HeroVideo {
     float: left;
     margin-right: 2px;
+    min-width: $HERO_WIDTH;
+    min-height: $HERO_HEIGHT;
 }
 
 .HeroSlide {

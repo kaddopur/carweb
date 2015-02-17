@@ -1,5 +1,6 @@
 .CoverTile {
     width: $COVER_WIDTH;
+    min-height: $COVER_HEIGHT;
     float: left;
     margin: 0 2px 2px 0;
     position: relative;
