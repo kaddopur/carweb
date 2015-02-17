@@ -1,11 +1,17 @@
 'use strict';
 
 var React = require('react');
+var HeroStream = require('./HeroStream');
+var Stream = require('./Stream');
 
 var PageStream = React.createClass({
     render: function() {
         return (
-            <div>This is a description of the site.</div>
+            <div className="PageStream">
+                <HeroStream/>
+                <Stream/>
+                <Stream/>
+            </div>
         );
     }
 });
