@@ -12,10 +12,7 @@ var Html = React.createClass({
                 <meta charSet="utf-8" />
                 <title>{this.getStore(ApplicationStore).getPageTitle()}</title>
                 <meta name="viewport" content="width=device-width, user-scalable=no" />
-                <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css" />
-                <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css" />
-                <link rel="stylesheet" href="/public/css/pure/side-menu.css" />
-                <link rel="stylesheet" href="/public/css/common.css" />
+                <link rel="stylesheet" href="/public/css/page_stream.css" />
             </head>
             <body>
                 <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>

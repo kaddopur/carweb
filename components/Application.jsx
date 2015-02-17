@@ -1,7 +1,7 @@
 'use strict';
 var React = require('react/addons');
 var NavMenu = require('./NavMenu.jsx');
-var PageHome = require('./PageHome.jsx');
+var PageStream = require('./PageStream.jsx');
 var About = require('./About.jsx');
 var ApplicationStore = require('../stores/ApplicationStore');
 var RouterMixin = require('flux-router-component').RouterMixin;
@@ -42,7 +42,7 @@ var Application = React.createClass({
         var output = '';
         switch (this.state.currentPageName) {
             case 'home':
-                output = <PageHome/>;
+                output = <PageStream/>;
                 break;
             case 'about':
                 output = <About/>;
@@ -59,14 +59,9 @@ var Application = React.createClass({
         });
 
         return (
-            <div id="layout" className={layoutClass}>
-                <a href="#menu" id="menuLink" className={menuLinkClass} onClick={this.handleToggleNavMenu}>
-                    <span></span>
-                </a>
-
-                <NavMenu selected={this.state.currentPageName} links={this.state.pages} ui={this.state.ui}/>
-
-                <div id="main">{output}</div>
+            <div>
+                <NavMenu/>
+                {output}
             </div>
         );
     },
