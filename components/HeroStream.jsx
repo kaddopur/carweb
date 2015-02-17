@@ -9,7 +9,7 @@ var _ = require('lodash');
 var HeroStream = React.createClass({
     propTypes: {
         name: React.PropTypes.string.isRequired,
-        heroYoutubeId: React.PropTypes.string.isRequired
+        heroYoutubeId: React.PropTypes.string
     },
     getDefaultProps: function() {
         return {
@@ -28,7 +28,7 @@ var HeroStream = React.createClass({
     componentWillMount: function() {
         var heroVideo;
         var slides;
-        var slideIndex;
+        var slideIndex = 0;
 
         this.props.videos.map(function setActiveVideo(video, index) {
             if (video.youtubeId === this.props.heroYoutubeId) {
@@ -37,6 +37,12 @@ var HeroStream = React.createClass({
                 slideIndex = Math.floor(index / this.props.videoPerPage);
             }
         }, this);
+
+        // if no video found as active, choose the 1st one
+        if (heroVideo === undefined) {
+            this.props.videos[0].isActive = true;
+            heroVideo = this.props.videos[0];
+        }
         slides = _.chunk(this.props.videos, this.props.videoPerPage);
 
         this.setState({
@@ -80,7 +86,7 @@ var HeroStream = React.createClass({
         return (
             <div className="HeroStream">
                 <h2 className="StreamTitle">{this.props.name}</h2>
-                <HeroVideo {...this.state.heroVideo}/>
+                <HeroVideo {...this.state.heroVideo} shouldAutoplay={!!this.props.heroYoutubeId}/>
                 <div className="HeroSlideViewport">
                     <ReactCSSTransitionGroup transitionName={this.state.slideAnimation}>
                         <HeroSlide videos={this.state.slides[this.state.slideIndex]} key={this.state.slideIndex}/>

@@ -22,41 +22,23 @@ var Application = React.createClass({
             currentPageName: appStore.getCurrentPageName(),
             pageTitle: appStore.getPageTitle(),
             route: appStore.getCurrentRoute(),
-            pages: appStore.getPages(),
-            ui: {
-                openNavMenu: false
-            }
+            pages: appStore.getPages()
         };
     },
     onChange: function () {
         this.setState(this.getState());
     },
-    handleToggleNavMenu: function () {
-        this.setState({
-            ui: {
-                openNavMenu: !this.state.ui.openNavMenu
-            }
-        });
-    },
     render: function () {
         var output = '';
         switch (this.state.currentPageName) {
-            case 'home':
-                output = <PageStream/>;
+            case 'stream':
+            case 'streamWithHero':
+                output = <PageStream route={this.state.route}/>;
                 break;
             case 'about':
                 output = <About/>;
                 break;
         }
-
-        var menuLinkClass = cx({
-            'menu-link': true,
-            'active': this.state.ui.openNavMenu 
-        });
-
-        var layoutClass = cx({
-            'active': this.state.ui.openNavMenu
-        });
 
         return (
             <div>

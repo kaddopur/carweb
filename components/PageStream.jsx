@@ -11,33 +11,6 @@ var HERO_STREAM_MOCK = {
             youtubeId: '5XYxuVYmR6A'
         },
         {
-            youtubeId: '5XYxuVYmR6A'
-        },
-        {
-            youtubeId: '5XYxuVYmR6A'
-        },
-        {
-            youtubeId: '5XYxuVYmR6A'
-        },
-        {
-            youtubeId: '5XYxuVYmR6A'
-        },
-        {
-            youtubeId: '5XYxuVYmR6A'
-        },
-        {
-            youtubeId: '5XYxuVYmR6A'
-        },
-        {
-            youtubeId: '5XYxuVYmR6A'
-        },
-        {
-            youtubeId: '5XYxuVYmR6A'
-        },
-        {
-            youtubeId: '5XYxuVYmR6A'
-        },
-        {
             youtubeId: 'lOGAI_lTyJI'
         },
         {
@@ -45,6 +18,9 @@ var HERO_STREAM_MOCK = {
         },
         {
             youtubeId: 'teMdjJ3w9iM'
+        },
+        {
+            youtubeId: 'qEYOyZVWlzs'
         }
     ]
 };
@@ -53,7 +29,9 @@ var PageStream = React.createClass({
     render: function() {
         return (
             <div className="PageStream">
-                <HeroStream {...HERO_STREAM_MOCK} heroYoutubeId="lOGAI_lTyJI"/>
+                <HeroStream {...HERO_STREAM_MOCK} 
+                    heroYoutubeId={this.props.route.params.heroYoutubeId}
+                    name={this.props.route.params.streamName}/>
                 <Stream/>
                 <Stream/>
             </div>
