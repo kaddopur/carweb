@@ -11,7 +11,50 @@ var HeroStream = React.createClass({
             heroVideo: {
                 youtubeId: '5XYxuVYmR6A'
             },
-            slides: [1],
+            slides: [
+                [
+                    {
+                        youtubeId: '5XYxuVYmR6A',
+                        isActive: true
+                    },
+                    {
+                        youtubeId: '5XYxuVYmR6A'
+                    },
+                    {
+                        youtubeId: '5XYxuVYmR6A'
+                    },
+                    {
+                        youtubeId: '5XYxuVYmR6A'
+                    },
+                    {
+                        youtubeId: '5XYxuVYmR6A'
+                    },
+                    {
+                        youtubeId: '5XYxuVYmR6A'
+                    }
+                ],
+                [
+                    {
+                        youtubeId: '4JipHEz53sU'
+                    },
+                    {
+                        youtubeId: '4JipHEz53sU'
+                    },
+                    {
+                        youtubeId: '4JipHEz53sU'
+                    },
+                    {
+                        youtubeId: '4JipHEz53sU'
+                    },
+                    {
+                        youtubeId: '4JipHEz53sU'
+                    },
+                    {
+                        youtubeId: '4JipHEz53sU'
+                    }
+
+                ]
+            ],
             initSlideIndex: 0
         };
     },
@@ -19,12 +62,12 @@ var HeroStream = React.createClass({
         var heroSlides = this.props.slides.map(function renderHeroSlide(slide, index) {
             return (
                 <div className="HeroSlide" key={index}>
-                    <CoverTile isActive={true} />
-                    <CoverTile/>
-                    <CoverTile/>
-                    <CoverTile/>
-                    <CoverTile/>
-                    <CoverTile/>
+                    <CoverTile {...slide[0]}/>
+                    <CoverTile {...slide[1]}/>
+                    <CoverTile {...slide[2]}/>
+                    <CoverTile {...slide[3]}/>
+                    <CoverTile {...slide[4]}/>
+                    <CoverTile {...slide[5]}/>
                 </div>
             );
         });
