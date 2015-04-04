@@ -1,3 +1,5 @@
+/* global document */
+
 'use strict';
 var React = require('react/addons');
 var NavMenu = require('./NavMenu.jsx');
@@ -5,8 +7,7 @@ var PageStream = require('./PageStream.jsx');
 var About = require('./About.jsx');
 var ApplicationStore = require('../stores/ApplicationStore');
 var RouterMixin = require('flux-router-component').RouterMixin;
-var FluxibleMixin = require('fluxible').Mixin;
-var cx = React.addons.classSet;
+var FluxibleMixin = require('fluxible').FluxibleMixin;
 
 var Application = React.createClass({
     mixins: [RouterMixin, FluxibleMixin],

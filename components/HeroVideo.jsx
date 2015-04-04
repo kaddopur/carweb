@@ -12,7 +12,7 @@ var HeroVideo = React.createClass({
     },
     render: function() {
         var youtubeSrc = 'https://www.youtube.com/embed/' + this.props.youtubeId;
-        
+
         if (this.props.shouldAutoplay) {
             youtubeSrc += '?autoplay=1';
         }
