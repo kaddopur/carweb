@@ -25,9 +25,7 @@ app.rehydrate(dehydratedState, function (err, context) {
     var mountNode = document.getElementById('app');
 
     debugClient('React Rendering');
-    React.withContext(context.getComponentContext(), function () {
-        React.render(context.createElement(), mountNode, function () {
-            debugClient('React Rendered');
-        });
+    React.render(context.createElement(), mountNode, function () {
+        debugClient('React Rendered');
     });
 });
