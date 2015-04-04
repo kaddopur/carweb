@@ -3,10 +3,10 @@
 var React = require('react');
 
 var About = React.createClass({
-    getInitialState: function () {
+    getInitialState: () => {
         return {};
     },
-    render: function() {
+    render: () => {
         return (
             <p>This is a description of the site.</p>
         );
