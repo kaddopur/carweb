@@ -1,3 +1,5 @@
+/* global document */
+
 'use strict';
 var React = require('react/addons');
 var NavMenu = require('./NavMenu.jsx');
