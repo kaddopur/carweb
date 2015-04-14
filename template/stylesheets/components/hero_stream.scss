@@ -21,6 +21,13 @@
     min-height: $HERO_HEIGHT;
 }
 
+.HeroSlideViewport {
+    position: relative;
+    overflow: hidden;
+    width: 2 * ($COVER_WIDTH + $GUTTER);
+    height: 3 * ($COVER_HEIGHT + $GUTTER);
+}
+
 .HeroSlide {
     @extend .cf;
     float: left;

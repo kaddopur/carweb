@@ -7,7 +7,7 @@
  * and the application is rendered via React.
  */
 
-require('node-jsx').install({ extension: '.jsx' });
+require('babel/register');
 
 var express = require('express');
 var serialize = require('serialize-javascript');
@@ -41,17 +41,15 @@ server.use(function (req, res, next) {
         var exposed = 'window.App=' + serialize(app.dehydrate(context)) + ';';
 
         debug('Rendering Application component into html');
-        var appComponent = app.getAppComponent();
-        React.withContext(context.getComponentContext(), function () {
-            var html = React.renderToStaticMarkup(htmlComponent({
-                state: exposed,
-                markup: React.renderToString(appComponent())
-            }));
+        var html = React.renderToStaticMarkup(htmlComponent({
+            context: context.getComponentContext(),
+            state: exposed,
+            markup: React.renderToString(context.createElement())
+        }));
 
-            debug('Sending markup');
-            res.write('<!DOCTYPE html>' + html);
-            res.end();
-        });
+        debug('Sending markup');
+        res.write('<!DOCTYPE html>' + html);
+        res.end();
     });
 });
 
