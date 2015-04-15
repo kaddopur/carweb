@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "grunt",
     "lint": "grunt jshint",
-    "postinstall":"grunt production",
+    "postinstall": "grunt production",
     "start": "node server.js",
     "test": "jest"
   },
