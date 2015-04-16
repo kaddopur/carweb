@@ -1,6 +1,8 @@
 'use strict';
 
 var React = require('react/addons');
+
+// components
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 var Slide = require('./Slide');
 
@@ -82,16 +84,16 @@ var Stream = React.createClass({
             ]
         };
     },
-    getInitialState: function() {
+    getInitialState() {
         return {
             slideIndex: this.props.initSlideIndex,
             slideAnimation: 'slide-left'
         };
     },
-    componentDidMount: function() {
+    componentDidMount() {
         this.slideTimestamp = new Date();
     },
-    handleIndexChange: function(step) {
+    handleIndexChange(step) {
         var currentTimestamp = new Date();
         var slideLength = this.props.slides.length;
 
@@ -105,7 +107,7 @@ var Stream = React.createClass({
             slideAnimation: (step > 0 ? 'slide-left' : 'slide-right')
         });
     },
-    render: function() {
+    render() {
         var leftButton = null;
         var rightButton = null;
 
@@ -140,4 +142,4 @@ var Stream = React.createClass({
     }
 });
 
-module.exports = Stream;
+export default Stream;

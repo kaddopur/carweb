@@ -3,8 +3,8 @@
 var expect = require('chai').expect;
 var loadPage = require('../../../actions/loadPage.js');
 
-describe('loadPage', function () {
-    it('should fire UPDATE_PAGE_TITLE event', function (done) {
+describe('loadPage', () => {
+    it('should fire UPDATE_PAGE_TITLE event', (done) => {
         var payload = {
             config: {
                 title: 'foo'
@@ -13,7 +13,7 @@ describe('loadPage', function () {
 
         var option = {
             dispatcherContext: {
-                dispatch: function(name, incomingPayload) {
+                dispatch(name, incomingPayload) {
                     expect(name).to.equal('UPDATE_PAGE_TITLE');
                     expect(incomingPayload).to.deep.equal({ pageTitle: payload.config.title});
                 }
@@ -22,7 +22,7 @@ describe('loadPage', function () {
 
         var mockActionContext = require('fluxible/utils').createMockActionContext(option);
 
-        mockActionContext.executeAction(loadPage, payload, function(err) {
+        mockActionContext.executeAction(loadPage, payload, (err) => {
             if (err) {
                 done(err);
                 return;

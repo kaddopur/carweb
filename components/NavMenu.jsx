@@ -3,7 +3,7 @@
 var React = require('react');
 
 var NavMenu = React.createClass({
-    render: function() {
+    render() {
         return (
             <div className="NavMenu">
                 <a href="#" className="Logo"></a>
@@ -16,4 +16,4 @@ var NavMenu = React.createClass({
     }
 });
 
-module.exports = NavMenu;
+export default NavMenu;

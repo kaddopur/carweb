@@ -3,15 +3,15 @@
 var React = require('react');
 
 var HeroVideo = React.createClass({
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             youtubeId: 'bw9CALKOvAI',
             shouldAutoplay: false,
             startAt: ''
         };
     },
-    render: function() {
-        var youtubeSrc = 'https://www.youtube.com/embed/' + this.props.youtubeId;
+    render() {
+        var youtubeSrc = `https://www.youtube.com/embed/${this.props.youtubeId}`;
 
         if (this.props.shouldAutoplay) {
             youtubeSrc += '?autoplay=1';
@@ -25,4 +25,4 @@ var HeroVideo = React.createClass({
     }
 });
 
-module.exports = HeroVideo;
+export default HeroVideo;

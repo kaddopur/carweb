@@ -1,6 +1,8 @@
 'use strict';
 
 var React = require('react');
+
+// components
 var HeroStream = require('./HeroStream');
 var Stream = require('./Stream');
 
@@ -26,12 +28,12 @@ var HERO_STREAM_MOCK = {
 };
 
 var PageStream = React.createClass({
-    render: function() {
+    render() {
         return (
             <div className="PageStream">
-                <HeroStream {...HERO_STREAM_MOCK} 
+                <HeroStream {...HERO_STREAM_MOCK}
                     heroYoutubeId={this.props.route.params.heroYoutubeId}
-                    name={this.props.route.params.streamName}/>
+                    name={this.props.route.params.streamName} />
                 <Stream/>
                 <Stream/>
             </div>
@@ -39,4 +41,4 @@ var PageStream = React.createClass({
     }
 });
 
-module.exports = PageStream;
+export default PageStream;

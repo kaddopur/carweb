@@ -1,11 +1,12 @@
 'use strict';
+
 var React = require('react');
 var ApplicationStore = require('../stores/ApplicationStore');
 var FluxibleMixin = require('fluxible/addons/FluxibleMixin');
 
 var Html = React.createClass({
     mixins: [ FluxibleMixin ],
-    render: function() {
+    render() {
         return (
             <html>
             <head>
@@ -25,4 +26,4 @@ var Html = React.createClass({
     }
 });
 
-module.exports = Html;
+export default Html;

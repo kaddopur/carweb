@@ -1,11 +1,13 @@
 'use strict';
 
 var React = require('react');
+
+// components
 var CoverTile = require('./CoverTile');
 
 var Slide = React.createClass({
     render: function() {
-        var coverTiles = this.props.videos.map(function renderCoverTiles(video, index) {
+        var coverTiles = this.props.videos.map((video, index) => {
             return (
                 <CoverTile {...video} key={index}/>
             );
@@ -18,4 +20,4 @@ var Slide = React.createClass({
     }
 });
 
-module.exports = Slide;
+export default Slide;

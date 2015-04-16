@@ -1,36 +1,38 @@
 'use strict';
 
-var React = require('react/addons');
-var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
-var HeroVideo = require('./HeroVideo');
-var HeroSlide = require('./HeroSlide');
 var _ = require('lodash');
+var React = require('react/addons');
+
+// components
+var HeroSlide = require('./HeroSlide');
+var HeroVideo = require('./HeroVideo');
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 var HeroStream = React.createClass({
     propTypes: {
         name: React.PropTypes.string.isRequired,
         heroYoutubeId: React.PropTypes.string
     },
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             initSlideIndex: 0,
             gapBetweenClick: 200,
             videoPerPage: 6
         };
     },
-    getInitialState: function() {
+    getInitialState() {
         return {
             slideIndex: this.props.initSlideIndex,
             slideAnimation: 'hero-slide-left',
             slides: []
         };
     },
-    componentWillMount: function() {
+    componentWillMount() {
         var heroVideo;
         var slides;
         var slideIndex = 0;
 
-        this.props.videos.map(function setActiveVideo(video, index) {
+        this.props.videos.map((video, index) => {
             if (video.youtubeId === this.props.heroYoutubeId) {
                 video.isActive = true;
                 heroVideo = video;
@@ -51,10 +53,10 @@ var HeroStream = React.createClass({
             slideIndex: slideIndex
         });
     },
-    componentDidMount: function() {
+    componentDidMount() {
         this.slideTimestamp = new Date();
     },
-    handleIndexChange: function(step) {
+    handleIndexChange(step) {
         var currentTimestamp = new Date();
         var slideLength = this.state.slides.length;
 
@@ -68,7 +70,7 @@ var HeroStream = React.createClass({
             slideAnimation: (step > 0 ? 'hero-slide-left' : 'hero-slide-right')
         });
     },
-    render: function() {
+    render() {
         var leftButton = null;
         var rightButton = null;
 
@@ -98,4 +100,4 @@ var HeroStream = React.createClass({
     }
 });
 
-module.exports = HeroStream;
+export default HeroStream;

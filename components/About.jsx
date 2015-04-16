@@ -3,14 +3,14 @@
 var React = require('react');
 
 var About = React.createClass({
-    getInitialState: () => {
+    getInitialState() {
         return {};
     },
-    render: () => {
+    render() {
         return (
             <p>This is a description of the site.</p>
         );
     }
 });
 
-module.exports = About;
+export default About;

@@ -11,7 +11,7 @@
     "lint": "grunt jshint",
     "postinstall": "grunt production",
     "start": "node server.js",
-    "test": "mocha tests/unit/* --reporter nyan"
+    "test": "mocha tests/unit/* --reporter nyan --compilers js:babel/register"
   },
   "dependencies": {
     "babel": "^4.6.3",
