@@ -1,23 +1,26 @@
 /* global document */
 
 'use strict';
+
 var React = require('react/addons');
-var NavMenu = require('./NavMenu.jsx');
-var PageStream = require('./PageStream.jsx');
-var About = require('./About.jsx');
 var ApplicationStore = require('../stores/ApplicationStore');
 var RouterMixin = require('flux-router-component').RouterMixin;
 var FluxibleMixin = require('fluxible/addons/FluxibleMixin');
+
+// components
+var NavMenu = require('./NavMenu.jsx');
+var PageStream = require('./PageStream.jsx');
+var About = require('./About.jsx');
 
 var Application = React.createClass({
     mixins: [RouterMixin, FluxibleMixin],
     statics: {
         storeListeners: [ApplicationStore]
     },
-    getInitialState: function () {
+    getInitialState() {
         return this.getState();
     },
-    getState: function () {
+    getState() {
         var appStore = this.getStore(ApplicationStore);
         return {
             currentPageName: appStore.getCurrentPageName(),
@@ -26,10 +29,10 @@ var Application = React.createClass({
             pages: appStore.getPages()
         };
     },
-    onChange: function () {
+    onChange() {
         this.setState(this.getState());
     },
-    render: function () {
+    render() {
         var output = '';
         switch (this.state.currentPageName) {
             case 'stream':
@@ -48,8 +51,7 @@ var Application = React.createClass({
             </div>
         );
     },
-
-    componentDidUpdate: function(prevProps, prevState) {
+    componentDidUpdate(prevProps, prevState) {
         var newState = this.state;
         if (newState.pageTitle === prevState.pageTitle) {
             return;
@@ -58,4 +60,4 @@ var Application = React.createClass({
     }
 });
 
-module.exports = Application;
+export default Application;

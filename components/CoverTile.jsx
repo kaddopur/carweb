@@ -6,7 +6,7 @@ var CoverTile = React.createClass({
     propTypes: {
         youtubeId: React.PropTypes.string.isRequired
     },
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             isActive: false,
             watchingLabel: 'Now Watching',
@@ -16,8 +16,8 @@ var CoverTile = React.createClass({
             youtubeId: '5XYxuVYmR6A'
         };
     },
-    render: function() {
-        var coverSrc = 'https://i.ytimg.com/vi/' + this.props.youtubeId + '/mqdefault.jpg';
+    render() {
+        var coverSrc = `https://i.ytimg.com/vi/${this.props.youtubeId}/mqdefault.jpg`;
         return (
             <a href="#">
                 <div className="CoverTile active">
@@ -34,4 +34,4 @@ var CoverTile = React.createClass({
     }
 });
 
-module.exports = CoverTile;
+export default CoverTile;

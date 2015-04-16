@@ -1,16 +1,18 @@
 'use strict';
 
 var React = require('react');
+
+// components
 var CoverTile = require('./CoverTile');
 
 var HeroSlide = React.createClass({
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             videos: []
         };
     },
-    render: function() {
-        var coverTiles = this.props.videos.map(function renderCoverTiles(video, index) {
+    render() {
+        var coverTiles = this.props.videos.map((video, index) => {
             return (
                 <CoverTile {...video} key={index}/>
             );
@@ -23,4 +25,4 @@ var HeroSlide = React.createClass({
     }
 });
 
-module.exports = HeroSlide;
+export default HeroSlide;
