@@ -3,6 +3,13 @@
 var loadPage = require('../actions/loadPage');
 
 module.exports = {
+    home: {
+        path: '/',
+        method: 'get',
+        page: 'stream',
+        title: 'Home',
+        action: loadPage
+    },
     about: {
         path: '/about',
         method: 'get',
