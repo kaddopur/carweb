@@ -2,7 +2,7 @@
 
 var loadPage = require('../actions/loadPage');
 
-module.exports = {
+export default {
     home: {
         path: '/',
         method: 'get',
