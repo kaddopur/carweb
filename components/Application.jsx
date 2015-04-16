@@ -2,15 +2,15 @@
 
 'use strict';
 
-var React = require('react/addons');
-var ApplicationStore = require('../stores/ApplicationStore');
-var RouterMixin = require('flux-router-component').RouterMixin;
-var FluxibleMixin = require('fluxible/addons/FluxibleMixin');
+import React from 'react/addons';
+import ApplicationStore from '../stores/ApplicationStore';
+import { RouterMixin } from 'flux-router-component';
+import FluxibleMixin from 'fluxible/addons/FluxibleMixin';
 
 // components
-var NavMenu = require('./NavMenu.jsx');
-var PageStream = require('./PageStream.jsx');
-var About = require('./About.jsx');
+import NavMenu from './NavMenu.jsx';
+import PageStream from './PageStream.jsx';
+import About from './About.jsx';
 
 var Application = React.createClass({
     mixins: [RouterMixin, FluxibleMixin],

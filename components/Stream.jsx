@@ -1,10 +1,10 @@
 'use strict';
 
-var React = require('react/addons');
+import React from 'react/addons';
 
 // components
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
-var Slide = require('./Slide');
+import Slide from './Slide';
 
 var Stream = React.createClass({
     getDefaultProps: function() {

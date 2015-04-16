@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react');
+import React from 'react';
 
 // components
-var CoverTile = require('./CoverTile');
+import CoverTile from './CoverTile';
 
 var Slide = React.createClass({
     render: function() {

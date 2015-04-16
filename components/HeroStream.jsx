@@ -1,11 +1,11 @@
 'use strict';
 
-var _ = require('lodash');
-var React = require('react/addons');
+import _ from 'lodash';
+import React from 'react/addons';
 
 // components
-var HeroSlide = require('./HeroSlide');
-var HeroVideo = require('./HeroVideo');
+import HeroSlide from './HeroSlide';
+import HeroVideo from './HeroVideo';
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 var HeroStream = React.createClass({

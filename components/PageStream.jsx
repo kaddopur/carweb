@@ -1,10 +1,10 @@
 'use strict';
 
-var React = require('react');
+import React from 'react';
 
 // components
-var HeroStream = require('./HeroStream');
-var Stream = require('./Stream');
+import HeroStream from './HeroStream';
+import Stream from './Stream';
 
 var HERO_STREAM_MOCK = {
     name: 'Car collision',

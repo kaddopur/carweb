@@ -1,7 +1,7 @@
 'use strict';
 
-var expect = require('chai').expect;
-var loadPage = require('../../../actions/loadPage.js');
+import { expect } from 'chai';
+import loadPage from '../../../actions/loadPage.js';
 
 describe('loadPage', () => {
     it('should fire UPDATE_PAGE_TITLE event', (done) => {
