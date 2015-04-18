@@ -5,7 +5,7 @@ import React from 'react';
 // components
 import { NavLink } from 'flux-router-component';
 import classNames from 'classnames';
-import streams from '../configs/streams'
+import streamsConfig from '../configs/streams'
 
 var NavMenu = React.createClass({
     propTypes: {
@@ -18,14 +18,14 @@ var NavMenu = React.createClass({
     },
 
     render() {
-        var links = Object.keys(streams).map(key => {
+        var links = Object.keys(streamsConfig).map(key => {
             var listClass = classNames({
-                'active': this.isActiveLink(streams[key])
+                'active': this.isActiveLink(streamsConfig[key])
             });
 
             return (
                 <li className={listClass}>
-                    <NavLink href={streams[key].path}>{streams[key].title}</NavLink>
+                    <NavLink href={streamsConfig[key].path}>{streamsConfig[key].title}</NavLink>
                 </li>
             );
         }, this);
