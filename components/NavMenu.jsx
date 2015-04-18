@@ -18,13 +18,13 @@ var NavMenu = React.createClass({
     },
 
     render() {
-        var links = Object.keys(streamsConfig).map(key => {
+        var links = Object.keys(streamsConfig).map((key, index) => {
             var listClass = classNames({
                 'active': this.isActiveLink(streamsConfig[key])
             });
 
             return (
-                <li className={listClass}>
+                <li className={listClass} key={index}>
                     <NavLink href={streamsConfig[key].path}>{streamsConfig[key].title}</NavLink>
                 </li>
             );
