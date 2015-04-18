@@ -1,5 +1,7 @@
 'use strict';
 
+var debug = require('debug')('Components:PageStream');
+
 import React from 'react';
 import streamsConfig from '../configs/streams';
 
@@ -30,6 +32,8 @@ var HERO_STREAM_MOCK = {
 
 var PageStream = React.createClass({
     render() {
+        debug('rendered');
+
         return (
             <div className="PageStream">
                 <HeroStream {...HERO_STREAM_MOCK}
