@@ -46,7 +46,7 @@ var Application = React.createClass({
 
         return (
             <div>
-                <NavMenu/>
+                <NavMenu route={this.state.route} />
                 {output}
             </div>
         );

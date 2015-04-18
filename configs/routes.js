@@ -8,7 +8,10 @@ export default {
         method: 'get',
         page: 'stream',
         title: 'Home',
-        action: loadPage
+        action: loadPage,
+        params: {
+            streamName: 'newest'
+        }
     },
     about: {
         path: '/about',

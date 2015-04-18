@@ -2,15 +2,38 @@
 
 import React from 'react';
 
+// components
+import { NavLink } from 'flux-router-component';
+import classNames from 'classnames';
+import streamsConfig from '../configs/streams'
+
 var NavMenu = React.createClass({
+    propTypes: {
+        route: React.PropTypes.object.isRequired
+    },
+
+    isActiveLink(streamItem) {
+        return this.props.route.url === streamItem.path ||
+               this.props.route.url === streamItem.alias;
+    },
+
     render() {
+        var links = Object.keys(streamsConfig).map(key => {
+            var listClass = classNames({
+                'active': this.isActiveLink(streamsConfig[key])
+            });
+
+            return (
+                <li className={listClass}>
+                    <NavLink href={streamsConfig[key].path}>{streamsConfig[key].title}</NavLink>
+                </li>
+            );
+        }, this);
+
         return (
             <div className="NavMenu">
-                <a href="#" className="Logo"></a>
-                <ul>
-                    <li className="active"><a href="#">Stream</a></li>
-                    <li><a href="#">Map Search</a></li>
-                </ul>
+                <NavLink href="/" className="Logo"></NavLink>
+                <ul>{links}</ul>
             </div>
         );
     }

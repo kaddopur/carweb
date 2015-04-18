@@ -1,5 +1,6 @@
 'use strict';
 
+import _ from 'lodash';
 import createStore from 'fluxible/addons/createStore';
 import routesConfig from '../configs/routes';
 
@@ -22,6 +23,9 @@ var ApplicationStore = createStore({
 
         var pageName = route.config.page;
         var page = this.pages[pageName];
+
+        // params overwrite from config
+        route.params = _.merge(route.params, route.config.params);
 
         this.currentPageName = pageName;
         this.currentPage = page;

@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import streamsConfig from '../configs/streams';
 
 // components
 import HeroStream from './HeroStream';
@@ -33,7 +34,7 @@ var PageStream = React.createClass({
             <div className="PageStream">
                 <HeroStream {...HERO_STREAM_MOCK}
                     heroYoutubeId={this.props.route.params.heroYoutubeId}
-                    name={this.props.route.params.streamName} />
+                    name={streamsConfig[this.props.route.params.streamName].title} />
                 <Stream/>
                 <Stream/>
             </div>
