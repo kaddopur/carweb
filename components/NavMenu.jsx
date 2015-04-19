@@ -1,5 +1,8 @@
 'use strict';
 
+var debug = require('debug')('Components:NavMenu');
+
+import _ from 'lodash';
 import React from 'react';
 
 // components
@@ -13,8 +16,8 @@ var NavMenu = React.createClass({
     },
 
     isActiveLink(streamItem) {
-        return this.props.route.url === streamItem.path ||
-               this.props.route.url === streamItem.alias;
+        return _.startsWith(this.props.route.url, streamItem.path) ||
+               this.props.route.url == streamItem.alias;
     },
 
     render() {
