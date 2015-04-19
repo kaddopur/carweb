@@ -26,6 +26,7 @@
     "express-state": "^1.2.0",
     "flux-router-component": "^0.6.0",
     "fluxible": "^0.4.3",
+    "fluxible-immutable-utils": "git://github.com/kaddopur/fluxible-immutable-utils.git",
     "fluxible-plugin-fetchr": "^0.2.1",
     "fluxible-plugin-routr": "^0.3.0",
     "grunt": "~0.4.5",
