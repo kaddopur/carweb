@@ -1,5 +1,4 @@
 'use strict';
-var debug = require('debug')('Components:HeroSlide');
 
 import React from 'react';
 import Immutable from 'immutable';

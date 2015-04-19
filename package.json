@@ -11,7 +11,8 @@
     "lint": "grunt jshint",
     "postinstall": "grunt production",
     "start": "node server.js",
-    "test": "mocha tests/unit/* --reporter nyan --compilers js:babel/register"
+    "test": "mocha tests/unit/* --reporter nyan --compilers js:babel/register",
+    "jsxhint": "jsxhint --jsx-only --babel components/**/*"
   },
   "dependencies": {
     "babel": "^4.6.3",
@@ -60,6 +61,7 @@
   },
   "precommit": [
     "lint",
+    "jsxhint",
     "test"
   ]
 }

@@ -1,7 +1,5 @@
 'use strict';
 
-var debug = require('debug')('Components:HeroStream');
-
 import _ from 'lodash';
 import React from 'react/addons';
 import Immutable from 'immutable';
