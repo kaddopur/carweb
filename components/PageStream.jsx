@@ -1,7 +1,5 @@
 'use strict';
 
-var debug = require('debug')('Components:PageStream');
-
 import React from 'react';
 import Immutable from 'immutable';
 import { ComponentMixin as ImmutableMixin } from 'fluxible-immutable-utils';
@@ -123,7 +121,7 @@ var PageStream = React.createClass({
 
         var normalStream = streamsMock.filter(stream => stream.get('name') !== streamName);
 
-        var streamComponents = normalStream.toArray().map((stream, index) => {
+        var streamComponents = normalStream.toArray().map(stream => {
             return <Stream key={stream.get('name')} stream={stream} />
         });
 

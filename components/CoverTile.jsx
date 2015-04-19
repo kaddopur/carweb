@@ -1,7 +1,5 @@
 'use strict';
 
-var debug = require('debug')('Components:CoverTile');
-
 import React from 'react';
 import Immutable from 'immutable';
 import { ComponentMixin as ImmutableMixin } from 'fluxible-immutable-utils';
