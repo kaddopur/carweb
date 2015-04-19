@@ -70,13 +70,18 @@ var PageStream = React.createClass({
         var heroYoutubeId = route.getIn(['params', 'heroYoutubeId']);
         var heroStream = streamsMock.get(streamName);
 
+        var normalStream = streamsMock.filter(stream => stream.get('name') !== streamName);
+
+        var streamComponents = normalStream.toArray().map((stream, index) => {
+            return <Stream key={stream.get('name')} stream={stream} />
+        });
+
         return (
             <div className="PageStream" key={this.props.route.get('url')}>
                 <HeroStream
                     stream={heroStream}
                     heroYoutubeId={heroYoutubeId} />
-                <Stream/>
-                <Stream/>
+                {streamComponents}
             </div>
         );
     }

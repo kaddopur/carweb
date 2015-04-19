@@ -1,5 +1,4 @@
 'use strict';
-
 var debug = require('debug')('Components:HeroSlide');
 
 import React from 'react';
@@ -20,7 +19,7 @@ var HeroSlide = React.createClass({
         var videos = this.props.videos.toArray();
         var coverTiles = videos.map((video, index) => {
             return (
-                <CoverTile streamName={this.props.streamName} video={video} key={index}/>
+                <CoverTile streamName={this.props.streamName} video={video} key={index} />
             );
         });
 

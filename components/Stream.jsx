@@ -1,101 +1,49 @@
 'use strict';
+var debug = require('debug')('Components:Stream');
 
+import _ from 'lodash';
 import React from 'react/addons';
+import Immutable from 'immutable';
+import { ComponentMixin as ImmutableMixin } from 'fluxible-immutable-utils';
 
 // components
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 import Slide from './Slide';
 
 var Stream = React.createClass({
+    mixins: [ ImmutableMixin ],
     getDefaultProps: function() {
         return {
-            name: 'Community',
             initSlideIndex: 0,
-            slides: [
-                [
-                    {
-                        youtubeId: '5XYxuVYmR6A'
-                    },
-                    {
-                        youtubeId: '5XYxuVYmR6A'
-                    },
-                    {
-                        youtubeId: '5XYxuVYmR6A'
-                    },
-                    {
-                        youtubeId: '5XYxuVYmR6A'
-                    },
-                    {
-                        youtubeId: '5XYxuVYmR6A'
-                    },
-                    {
-                        youtubeId: '5XYxuVYmR6A'
-                    },
-                    {
-                        youtubeId: '5XYxuVYmR6A'
-                    }
-                ],
-                [
-                    {
-                        youtubeId: '4JipHEz53sU'
-                    },
-                    {
-                        youtubeId: '4JipHEz53sU'
-                    },
-                    {
-                        youtubeId: '4JipHEz53sU'
-                    },
-                    {
-                        youtubeId: '4JipHEz53sU'
-                    },
-                    {
-                        youtubeId: '4JipHEz53sU'
-                    },
-                    {
-                        youtubeId: '4JipHEz53sU'
-                    },
-                    {
-                        youtubeId: '4JipHEz53sU'
-                    }
-                ],
-                [
-                    {
-                        youtubeId: 'dFf4AgBNR1E'
-                    },
-                    {
-                        youtubeId: 'dFf4AgBNR1E'
-                    },
-                    {
-                        youtubeId: 'dFf4AgBNR1E'
-                    },
-                    {
-                        youtubeId: 'dFf4AgBNR1E'
-                    },
-                    {
-                        youtubeId: 'dFf4AgBNR1E'
-                    },
-                    {
-                        youtubeId: 'dFf4AgBNR1E'
-                    },
-                    {
-                        youtubeId: 'dFf4AgBNR1E'
-                    }
-                ]
-            ]
+            videoPerPage: 6
         };
     },
     getInitialState() {
         return {
+            slideAnimation: 'slide-left',
             slideIndex: this.props.initSlideIndex,
-            slideAnimation: 'slide-left'
+            slides: Immutable.List()
         };
+    },
+    componentWillMount() {
+        var slides;
+
+        this.videos = this.props.stream.get('videos', Immutable.List()).toJS();
+
+        debug(this.videos)
+
+        slides = Immutable.fromJS(_.chunk(this.videos, this.props.videoPerPage));
+
+        this.setState({
+            slides: slides
+        });
     },
     componentDidMount() {
         this.slideTimestamp = new Date();
     },
     handleIndexChange(step) {
         var currentTimestamp = new Date();
-        var slideLength = this.props.slides.length;
+        var slideLength = this.state.slides.size;
 
         if (currentTimestamp - this.slideTimestamp < this.props.gapBetweenClick) {
             return;
@@ -117,7 +65,7 @@ var Stream = React.createClass({
             );
         }
 
-        if (this.state.slideIndex !== this.props.slides.length - 1) {
+        if (this.state.slideIndex !== this.state.slides.size - 1) {
             rightButton = (
                 <span className="NavButton Right" onClick={this.handleIndexChange.bind(this, 1)}></span>
             );
@@ -125,14 +73,16 @@ var Stream = React.createClass({
 
         return (
             <div className="Stream">
-                <h2 className="StreamTitle">{this.props.name}</h2>
-                <div style={{
+                <h2 className="StreamTitle">{this.props.stream.get('title')}</h2>
+                <div className="SlideViewport" style={{
                     position: 'relative',
                     width: '100%',
                     height: 104
                 }}>
                     <ReactCSSTransitionGroup transitionName={this.state.slideAnimation}>
-                        <Slide videos={this.props.slides[this.state.slideIndex]} key={this.state.slideIndex}/>
+                        <Slide key={this.state.slideIndex}
+                            streamName={this.props.stream.get('name')}
+                            videos={this.state.slides.get(this.state.slideIndex)} />
                     </ReactCSSTransitionGroup>
                 </div>
                 {leftButton}
