@@ -90,7 +90,7 @@ var PageStream = React.createClass({
 
         return (
             <div className="PageStream">
-                <HeroStream {...HERO_STREAM_MOCK}
+                <HeroStream
                     stream={heroStream}
                     heroYoutubeId={heroYoutubeId}
                     title={streamsConfig[streamName].title} />

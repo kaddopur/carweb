@@ -1,17 +1,18 @@
 'use strict';
 
 import React from 'react';
+import { ComponentMixin as ImmutableMixin } from 'fluxible-immutable-utils';
 
 var HeroVideo = React.createClass({
+    mixins: [ ImmutableMixin ],
     getDefaultProps() {
         return {
-            youtubeId: 'bw9CALKOvAI',
             shouldAutoplay: false,
             startAt: ''
         };
     },
     render() {
-        var youtubeSrc = `https://www.youtube.com/embed/${this.props.youtubeId}`;
+        var youtubeSrc = `https://www.youtube.com/embed/${this.props.video.get('youtubeId')}`;
 
         if (this.props.shouldAutoplay) {
             youtubeSrc += '?autoplay=1';
