@@ -20,7 +20,6 @@ var streams = {
     exid: {
         name: 'exid',
         path: '/stream/exid',
-        alias: '/',
         title: 'EXID'
     },
     redVelvet: {
