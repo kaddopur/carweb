@@ -47,49 +47,29 @@ var streamsMock = Immutable.fromJS({
         title: streamsConfig.reckless.title,
         videos: [
             {
-                youtubeId: '5XYxuVYmR6A'
+                youtubeId: 'dFf4AgBNR1E'
             },
             {
-                youtubeId: 'lOGAI_lTyJI'
+                youtubeId: 'teMdjJ3w9iM'
             },
             {
                 youtubeId: 'qEYOyZVWlzs'
             }
         ]
     }
-})
-
-var HERO_STREAM_MOCK = {
-    name: 'Car collision',
-    videos: [
-        {
-            youtubeId: '5XYxuVYmR6A'
-        },
-        {
-            youtubeId: 'lOGAI_lTyJI'
-        },
-        {
-            youtubeId: 'dFf4AgBNR1E'
-        },
-        {
-            youtubeId: 'teMdjJ3w9iM'
-        },
-        {
-            youtubeId: 'qEYOyZVWlzs'
-        }
-    ]
-};
+});
 
 var PageStream = React.createClass({
     mixins: [ ImmutableMixin ],
     render() {
         var route = this.props.route;
+        debug(this.props.route.get('url'));
         var streamName = route.getIn(['params', 'streamName']);
         var heroYoutubeId = route.getIn(['params', 'heroYoutubeId']);
         var heroStream = streamsMock.get(streamName);
 
         return (
-            <div className="PageStream">
+            <div className="PageStream" key={this.props.route.get('url')}>
                 <HeroStream
                     stream={heroStream}
                     heroYoutubeId={heroYoutubeId}

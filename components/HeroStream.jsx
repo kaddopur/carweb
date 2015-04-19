@@ -22,7 +22,7 @@ var HeroStream = React.createClass({
         return {
             initSlideIndex: 0,
             gapBetweenClick: 200,
-            videoPerPage: 2
+            videoPerPage: 6
         };
     },
     getInitialState() {
@@ -40,16 +40,16 @@ var HeroStream = React.createClass({
 
         this.videos.map((video, index) => {
             if (video.youtubeId === this.props.heroYoutubeId) {
+                video.isActive = true;
                 heroVideo = Immutable.fromJS(video);
-                heroVideo.set('isActive', true);
                 slideIndex = Math.floor(index / this.props.videoPerPage);
             }
         }, this);
 
         // if no video found as active, choose the 1st one
         if (heroVideo === undefined) {
+            this.videos[0].isActive = true;
             heroVideo = Immutable.fromJS(this.videos[0]);
-            heroVideo.set('isActive', true);
         }
         slides = Immutable.fromJS(_.chunk(this.videos, this.props.videoPerPage));
 
