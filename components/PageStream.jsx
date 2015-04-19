@@ -59,6 +59,57 @@ var streamsMock = Immutable.fromJS({
                 youtubeId: 'qEYOyZVWlzs'
             }
         ]
+    },
+    exid: {
+        name: streamsConfig.exid.name,
+        title: streamsConfig.exid.title,
+        videos: [
+            {
+                youtubeId: 'OTyJkMK8m_o'
+            },
+            {
+                youtubeId: 'ws5Jvmonq-w'
+            },
+            {
+                youtubeId: 'NNxerm8EdPo'
+            },
+            {
+                youtubeId: 'hfXZ6ydgZyo'
+            },
+            {
+                youtubeId: 'egqDPipqIAg'
+            }
+        ]
+    },
+    redVelvet: {
+        name: streamsConfig.redVelvet.name,
+        title: streamsConfig.redVelvet.title,
+        videos: [
+            {
+                youtubeId: 'JFgv8bKfxEs'
+            },
+            {
+                youtubeId: 'QpAn9ryoB4Y'
+            },
+            {
+                youtubeId: 'glXgSSOKlls'
+            },
+            {
+                youtubeId: 'px2Q47O0_eE'
+            }
+        ]
+    },
+    lovelyz: {
+        name: streamsConfig.lovelyz.name,
+        title: streamsConfig.lovelyz.title,
+        videos: [
+            {
+                youtubeId: 'Mn0ToZ9ki3Q'
+            },
+            {
+                youtubeId: 'Bfejxue4vMs'
+            }
+        ]
     }
 });
 
