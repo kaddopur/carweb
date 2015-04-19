@@ -77,8 +77,6 @@ var HeroStream = React.createClass({
         });
     },
     render() {
-        debug('render');
-
         var leftButton = null;
         var rightButton = null;
 

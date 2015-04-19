@@ -63,7 +63,6 @@ var PageStream = React.createClass({
     mixins: [ ImmutableMixin ],
     render() {
         var route = this.props.route;
-        debug(this.props.route.get('url'));
         var streamName = route.getIn(['params', 'streamName']);
         var heroYoutubeId = route.getIn(['params', 'heroYoutubeId']);
         var heroStream = streamsMock.get(streamName);
