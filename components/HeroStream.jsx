@@ -26,17 +26,17 @@ var HeroStream = React.createClass({
     },
     getInitialState() {
         return {
-            slideIndex: this.props.initSlideIndex,
             slideAnimation: 'hero-slide-left',
+            slideIndex: this.props.initSlideIndex,
             slides: Immutable.List()
         };
     },
     componentWillMount() {
-        this.videos = this.props.stream.get('videos', Immutable.List()).toJS();
         var heroVideo;
         var slides;
         var slideIndex = 0;
 
+        this.videos = this.props.stream.get('videos', Immutable.List()).toJS();
         this.videos.map((video, index) => {
             if (video.youtubeId === this.props.heroYoutubeId) {
                 video.isActive = true;

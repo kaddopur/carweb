@@ -16,6 +16,22 @@ var streams = {
         name: 'reckless',
         path: '/stream/reckless',
         title: '危險駕駛'
+    },
+    exid: {
+        name: 'exid',
+        path: '/stream/exid',
+        alias: '/',
+        title: 'EXID'
+    },
+    redVelvet: {
+        name: 'redVelvet',
+        path: '/stream/redVelvet',
+        title: 'Red Velvet'
+    },
+    lovelyz: {
+        name: 'lovelyz',
+        path: '/stream/lovelyz',
+        title: 'Lovelyz'
     }
 };
 
