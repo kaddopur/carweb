@@ -4,6 +4,7 @@ var debug = require('debug')('Components:PageStream');
 
 import React from 'react';
 import Immutable from 'immutable';
+import { ComponentMixin as ImmutableMixin } from 'fluxible-immutable-utils';
 import streamsConfig from '../configs/streams';
 
 // components
@@ -80,6 +81,7 @@ var HERO_STREAM_MOCK = {
 };
 
 var PageStream = React.createClass({
+    mixins: [ ImmutableMixin ],
     render() {
         var route = this.props.route;
         var streamName = route.getIn(['params', 'streamName']);
