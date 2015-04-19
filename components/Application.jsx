@@ -3,6 +3,7 @@
 'use strict';
 
 import React from 'react/addons';
+import Immutable from 'immutable';
 import ApplicationStore from '../stores/ApplicationStore';
 import { RouterMixin } from 'flux-router-component';
 import FluxibleMixin from 'fluxible/addons/FluxibleMixin';
@@ -37,7 +38,7 @@ var Application = React.createClass({
         switch (this.state.currentPageName) {
             case 'stream':
             case 'streamWithHero':
-                output = <PageStream route={this.state.route}/>;
+                output = <PageStream route={Immutable.fromJS(this.state.route)}/>;
                 break;
             case 'about':
                 output = <About/>;

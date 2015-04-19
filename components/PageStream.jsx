@@ -81,15 +81,17 @@ var HERO_STREAM_MOCK = {
 
 var PageStream = React.createClass({
     render() {
-        debug('rendered');
-
-        debug(streamsMock.get('newest'));
+        var route = this.props.route;
+        var streamName = route.getIn(['params', 'streamName']);
+        var heroYoutubeId = route.getIn(['params', 'heroYoutubeId']);
+        var heroStream = streamsMock.get(streamName);
 
         return (
             <div className="PageStream">
                 <HeroStream {...HERO_STREAM_MOCK}
-                    heroYoutubeId={this.props.route.params.heroYoutubeId}
-                    name={streamsConfig[this.props.route.params.streamName].title} />
+                    stream={heroStream}
+                    heroYoutubeId={heroYoutubeId}
+                    title={streamsConfig[streamName].title} />
                 <Stream/>
                 <Stream/>
             </div>

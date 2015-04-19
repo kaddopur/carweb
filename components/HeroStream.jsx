@@ -10,7 +10,7 @@ var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 var HeroStream = React.createClass({
     propTypes: {
-        name: React.PropTypes.string.isRequired,
+        title: React.PropTypes.string.isRequired,
         heroYoutubeId: React.PropTypes.string
     },
     getDefaultProps() {
@@ -87,7 +87,7 @@ var HeroStream = React.createClass({
         }
         return (
             <div className="HeroStream">
-                <h2 className="StreamTitle">{this.props.name}</h2>
+                <h2 className="StreamTitle">{this.props.title}</h2>
                 <HeroVideo {...this.state.heroVideo} shouldAutoplay={!!this.props.heroYoutubeId}/>
                 <div className="HeroSlideViewport">
                     <ReactCSSTransitionGroup transitionName={this.state.slideAnimation}>
