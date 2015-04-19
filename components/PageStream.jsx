@@ -13,6 +13,7 @@ import Stream from './Stream';
 
 var streamsMock = Immutable.fromJS({
     newest: {
+        name: streamsConfig.newest.name,
         title: streamsConfig.newest.title,
         videos: [
             {
@@ -33,6 +34,7 @@ var streamsMock = Immutable.fromJS({
         ]
     },
     reported: {
+        name: streamsConfig.reported.name,
         title: streamsConfig.reported.title,
         videos: [
             {
@@ -44,6 +46,7 @@ var streamsMock = Immutable.fromJS({
         ]
     },
     reckless: {
+        name: streamsConfig.reckless.name,
         title: streamsConfig.reckless.title,
         videos: [
             {
@@ -71,8 +74,7 @@ var PageStream = React.createClass({
             <div className="PageStream" key={this.props.route.get('url')}>
                 <HeroStream
                     stream={heroStream}
-                    heroYoutubeId={heroYoutubeId}
-                    title={streamsConfig[streamName].title} />
+                    heroYoutubeId={heroYoutubeId} />
                 <Stream/>
                 <Stream/>
             </div>

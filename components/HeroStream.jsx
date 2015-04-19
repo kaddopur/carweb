@@ -15,7 +15,6 @@ var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 var HeroStream = React.createClass({
     mixins: [ ImmutableMixin ],
     propTypes: {
-        title: React.PropTypes.string.isRequired,
         heroYoutubeId: React.PropTypes.string
     },
     getDefaultProps() {
@@ -93,11 +92,13 @@ var HeroStream = React.createClass({
         }
         return (
             <div className="HeroStream">
-                <h2 className="StreamTitle">{this.props.title}</h2>
+                <h2 className="StreamTitle">{this.props.stream.get('title')}</h2>
                 <HeroVideo video={this.state.heroVideo} shouldAutoplay={!!this.props.heroYoutubeId}/>
                 <div className="HeroSlideViewport">
                     <ReactCSSTransitionGroup transitionName={this.state.slideAnimation}>
-                        <HeroSlide videos={this.state.slides.get(this.state.slideIndex)} key={this.state.slideIndex}/>
+                        <HeroSlide key={this.state.slideIndex}
+                            streamName={this.props.stream.get('name')}
+                            videos={this.state.slides.get(this.state.slideIndex)} />
                     </ReactCSSTransitionGroup>
                 </div>
                 {this.state.slides.size === 0 ? null : <div className="HeroNavButtonContainer">{leftButton}{rightButton}</div>}

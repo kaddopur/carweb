@@ -6,6 +6,9 @@ import React from 'react';
 import Immutable from 'immutable';
 import { ComponentMixin as ImmutableMixin } from 'fluxible-immutable-utils';
 
+// components
+import { NavLink } from 'flux-router-component';
+
 var CoverTile = React.createClass({
     mixins: [ ImmutableMixin ],
     getDefaultProps() {
@@ -21,10 +24,11 @@ var CoverTile = React.createClass({
         };
     },
     render() {
-        var coverSrc = `https://i.ytimg.com/vi/${this.props.video.get('youtubeId')}/mqdefault.jpg`;
+        var youtubeId = this.props.video.get('youtubeId');
+        var coverSrc = `https://i.ytimg.com/vi/${youtubeId}/mqdefault.jpg`;
 
         return (
-            <a href="#">
+            <NavLink href={`/stream/${this.props.streamName}/${youtubeId}`}>
                 <div className="CoverTile active">
                     {this.props.video.get('isActive') ? <label className="WatchingLabel">Now Watching</label> : null}
                     <label className="DurationLabel">1:19</label>
@@ -34,7 +38,7 @@ var CoverTile = React.createClass({
                     </div>
                     <img src={coverSrc}/>
                 </div>
-            </a>
+            </NavLink>
         );
     }
 });

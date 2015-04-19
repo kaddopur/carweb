@@ -20,7 +20,7 @@ var HeroSlide = React.createClass({
         var videos = this.props.videos.toArray();
         var coverTiles = videos.map((video, index) => {
             return (
-                <CoverTile video={video} key={index}/>
+                <CoverTile streamName={this.props.streamName} video={video} key={index}/>
             );
         });
 
