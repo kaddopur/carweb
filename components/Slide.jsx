@@ -1,5 +1,4 @@
 'use strict';
-var debug = require('debug')('Components:Slide');
 
 import React from 'react';
 import Immutable from 'immutable';
@@ -10,12 +9,14 @@ import CoverTile from './CoverTile';
 
 var Slide = React.createClass({
     mixins: [ ImmutableMixin ],
+
     getDefaultProps() {
         return {
             videos: Immutable.List()
         };
     },
-    render() {
+
+    render () {
         var videos = this.props.videos.toArray();
         var coverTiles = videos.map((video, index) => {
             return (
@@ -23,7 +24,6 @@ var Slide = React.createClass({
             );
         });
 
-        debug(videos);
         return (
             <div className="Slide">
                 {coverTiles}

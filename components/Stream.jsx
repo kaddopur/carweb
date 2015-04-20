@@ -1,5 +1,4 @@
 'use strict';
-var debug = require('debug')('Components:Stream');
 
 import _ from 'lodash';
 import React from 'react/addons';
@@ -12,36 +11,38 @@ import Slide from './Slide';
 
 var Stream = React.createClass({
     mixins: [ ImmutableMixin ],
-    getDefaultProps: function() {
+
+    getDefaultProps () {
         return {
             initSlideIndex: 0,
             videoPerPage: 6
         };
     },
-    getInitialState() {
+
+    getInitialState () {
         return {
             slideAnimation: 'slide-left',
             slideIndex: this.props.initSlideIndex,
             slides: Immutable.List()
         };
     },
-    componentWillMount() {
+
+    componentWillMount () {
         var slides;
 
         this.videos = this.props.stream.get('videos', Immutable.List()).toJS();
-
-        debug(this.videos)
-
         slides = Immutable.fromJS(_.chunk(this.videos, this.props.videoPerPage));
 
         this.setState({
             slides: slides
         });
     },
-    componentDidMount() {
+
+    componentDidMount () {
         this.slideTimestamp = new Date();
     },
-    handleIndexChange(step) {
+
+    handleIndexChange (step) {
         var currentTimestamp = new Date();
         var slideLength = this.state.slides.size;
 
@@ -55,7 +56,8 @@ var Stream = React.createClass({
             slideAnimation: (step > 0 ? 'slide-left' : 'slide-right')
         });
     },
-    render() {
+
+    render () {
         var leftButton = null;
         var rightButton = null;
 
