@@ -1,5 +1,6 @@
 'use strict';
 
+import Immutable from 'immutable';
 import { createImmutableStore } from 'fluxible-immutable-utils';
 import streamsConfig from '../configs/streams';
 
@@ -15,7 +16,7 @@ var StreamStore = createImmutableStore({
     },
 
     _onReadStreams() {
-        this.setState(this._state.set('streams', {
+        this.setState(this._state.set('streams', Immutable.fromJS({
             newest: {
                 name: streamsConfig.newest.name,
                 title: streamsConfig.newest.title,
@@ -115,7 +116,7 @@ var StreamStore = createImmutableStore({
                     }
                 ]
             }
-        }));
+        })));
     }
 });
 
