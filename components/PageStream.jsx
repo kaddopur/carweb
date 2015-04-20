@@ -23,14 +23,17 @@ var PageStream = React.createClass({
         storeListeners: [ StreamStore ]
     },
 
-    getStateOnChange: function () {
-        this.executeAction(readStreams);
+    getStateOnChange () {
+        if (!this.state) {
+            this.executeAction(readStreams);
+        }
+
         return {
             streams: this.getStore(StreamStore).getStreams()
         };
     },
 
-    render() {
+    render () {
         var route = this.props.route;
         var streamName = route.getIn(['params', 'streamName']);
         var heroYoutubeId = route.getIn(['params', 'heroYoutubeId']);
